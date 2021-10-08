@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class profilepage extends StatefulWidget {
+class ProfilePage extends StatefulWidget {
   static const routeName = '/profilepage';
 
   @override
-  _profilepageState createState() => _profilepageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _profilepageState extends State<profilepage> {
+class _ProfilePageState extends State<ProfilePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -229,8 +229,7 @@ class _profilepageState extends State<profilepage> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                                 child: Text(
                                   '20',
                                   textAlign: TextAlign.center,
