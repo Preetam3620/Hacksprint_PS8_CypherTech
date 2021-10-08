@@ -7,6 +7,7 @@ import 'package:sizer/sizer.dart';
 import 'Screens/SignIn/signin_page.dart';
 import 'Screens/SignUp/signup_page1.dart';
 import 'Screens/WelcomePage/welcome_page.dart';
+import 'Screens/homePage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +31,9 @@ class MyApp extends StatelessWidget {
             SignUpPage1.routeName: (context) => const SignUpPage1(),
             SignUpPage2.routeName: (context) => const SignUpPage2(),
             SignUpPage3.routeName: (context) => const SignUpPage3(),
+            HomePage.routeName: (context) => HomePage(),
           },
-          initialRoute: WelcomePage.routeName,
+          initialRoute: HomePage.routeName,
         );
       },
     );

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePageWidget extends StatefulWidget {
-  HomePageWidget({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  static const routeName = '/HomePage';
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -21,7 +21,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         title: Text(
           'Fluento',
           textAlign: TextAlign.center,
-          style: FlutterFlowTheme.title1.override(
+          style: TextStyle(
             fontFamily: 'Poppins',
             color: Colors.white,
             fontSize: 26,
@@ -61,7 +61,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         label: Text(
           'Add Language',
           textAlign: TextAlign.center,
-          style: FlutterFlowTheme.subtitle2.override(
+          style: TextStyle(
             fontFamily: 'Poppins',
             color: Colors.white,
             fontWeight: FontWeight.normal,
@@ -114,7 +114,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Profile',
-                    style: FlutterFlowTheme.bodyText1.override(
+                    style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 26,
@@ -126,7 +126,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Friends',
-                    style: FlutterFlowTheme.bodyText1.override(
+                    style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 26,
@@ -138,7 +138,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Languages',
-                    style: FlutterFlowTheme.bodyText1.override(
+                    style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 26,
@@ -150,7 +150,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Settings',
-                    style: FlutterFlowTheme.bodyText1.override(
+                    style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 26,
