@@ -1,6 +1,5 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:fluento_app/Screens/SignUp/signup_page2.dart';
-import 'package:fluento_app/Screens/SignUp/signup_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -77,8 +76,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                   child: GestureDetector(
-                    onTap: () =>
-                        Navigator.pushNamed(context, SignUpPage2.routeName),
+                    onTap: () => Navigator.pushNamed(context, SignUpPage2.routeName),
                     child: Container(
                       width: 130,
                       height: 40,
@@ -88,8 +86,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
                           color: const Color(0xFF373768),
                           width: 1,
                         ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(15.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -148,8 +145,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
                           color: const Color(0xFF373768),
                           width: 1,
                         ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(15.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -37,15 +37,12 @@ class _HomePageState extends State<HomePage> {
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
-              child: Image.network(
-                'https://picsum.photos/seed/391/600',
-                fit: BoxFit.fill,
-              ),
+              // child: user['imageURL'] != '' ? Image.network(user['imageURL'], fit: BoxFit.cover) : Icon(Icons.person, size: 25.w),
             ),
           )
         ],
         centerTitle: true,
-        elevation: 4,
+        elevation: 5,
       ),
       backgroundColor: const Color(0xFF1A1A2F),
       floatingActionButton: FloatingActionButton.extended(
