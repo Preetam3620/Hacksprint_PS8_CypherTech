@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Fluento',
           routes: {
-            SignInPage.routeName: (context) => const SignInPage(),
-            SignUpPage.routeName: (context) => const SignUpPage(),
+            SignInPage.routeName: (context) => SignInPage(),
+            SignUpPage.routeName: (context) => SignUpPage(),
           },
           initialRoute: SignInPage.routeName,
         );
