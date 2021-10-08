@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFF373768),
         automaticallyImplyLeading: true,
-        title: Text(
+        title: const Text(
           'Fluento',
           textAlign: TextAlign.center,
           style: TextStyle(
