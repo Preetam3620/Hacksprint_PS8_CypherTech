@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             HomePage.routeName: (context) => HomePage(),
             profilepage.routeName: (context) => profilepage(),
           },
-          initialRoute: profilepage.routeName,
+          initialRoute: HomePage.routeName,
         );
       },
     );
