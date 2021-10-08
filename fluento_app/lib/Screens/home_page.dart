@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
       ),
       backgroundColor: const Color(0xFF1A1A2F),
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'botbut',
         onPressed: () {
           Navigator.pushNamed(context, SelectLanguageCard.routeName);
         },

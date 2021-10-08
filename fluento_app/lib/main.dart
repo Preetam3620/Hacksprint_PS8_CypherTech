@@ -4,7 +4,6 @@ import 'package:fluento_app/Screens/select_language_card.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sizer/sizer.dart';
-
 import 'Screens/SignIn/signin_page.dart';
 import 'Screens/SignUp/signup_page1.dart';
 import 'Screens/WelcomePage/welcome_page.dart';
