@@ -1,3 +1,4 @@
+import 'package:fluento_app/Screens/SignUp/signup_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 
@@ -32,13 +33,13 @@ class WelcomePage extends StatelessWidget {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1A1A2F),
+                decoration: const BoxDecoration(
+                  color: Color(0xFF1A1A2F),
                   image: DecorationImage(
                     fit: BoxFit.fitHeight,
-                    image: Image.asset(
+                    image: AssetImage(
                       'assets/icons/app_logo.png',
-                    ).image,
+                    ),
                   ),
                 ),
               ),
@@ -111,31 +112,34 @@ class WelcomePage extends StatelessWidget {
             ),
             Expanded(
               flex: 2,
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1A1A2F),
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                  child: Card(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    color: const Color(0xFFD4D2D2),
-                    elevation: 20,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: AutoSizeText(
-                        'Create an account?',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Color(0xFF373768),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
+              child: GestureDetector(
+                onTap: () => Navigator.pushNamed(context, SignUpPage1.routeName),
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    child: Card(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      color: const Color(0xFFD4D2D2),
+                      elevation: 20,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: AutoSizeText(
+                          'Create an account?',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: Color(0xFF373768),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),

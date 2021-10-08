@@ -1,3 +1,5 @@
+import 'package:fluento_app/Screens/SignUp/signup_page2.dart';
+import 'package:fluento_app/Screens/SignUp/signup_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sizer/sizer.dart';
@@ -25,9 +27,11 @@ class MyApp extends StatelessWidget {
           routes: {
             SignInPage.routeName: (context) => const SignInPage(),
             WelcomePage.routeName: (context) => WelcomePage(),
-            SignUpPage.routeName: (context) => const SignUpPage(),
+            SignUpPage1.routeName: (context) => const SignUpPage1(),
+            SignUpPage2.routeName: (context) => const SignUpPage2(),
+            SignUpPage3.routeName: (context) => const SignUpPage3(),
           },
-          initialRoute: SignInPage.routeName,
+          initialRoute: WelcomePage.routeName,
         );
       },
     );

@@ -1,22 +1,26 @@
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
+import 'package:fluento_app/Screens/SignUp/signup_page2.dart';
+import 'package:fluento_app/Screens/SignUp/signup_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class SignUpPage1Widget extends StatefulWidget {
-  SignUpPage1Widget({Key key}) : super(key: key);
+class SignUpPage1 extends StatefulWidget {
+  static const routeName = '/SignUpPage1';
+  const SignUpPage1({Key? key}) : super(key: key);
 
   @override
-  _SignUpPage1WidgetState createState() => _SignUpPage1WidgetState();
+  _SignUpPage1State createState() => _SignUpPage1State();
 }
 
-class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
+class _SignUpPage1State extends State<SignUpPage1> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF1A1A2F),
+      backgroundColor: const Color(0xFF1A1A2F),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -27,7 +31,7 @@ class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF1A1A2F),
                 ),
               ),
@@ -35,18 +39,16 @@ class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
             Expanded(
               flex: 7,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                 child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
+                  child: SvgPicture.asset(
+                    'assets/images/email.svg',
+                    fit: BoxFit.contain,
+                    width: 100,
+                    height: 100,
+                  ),
+                  decoration: const BoxDecoration(
                     color: Color(0xFF1A1A2F),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: Image.asset(
-                        'assets/images/undraw_Sign_in_re_o58h.svg',
-                      ).image,
-                    ),
                   ),
                 ),
               ),
@@ -56,7 +58,7 @@ class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF1A1A2F),
                 ),
               ),
@@ -66,34 +68,39 @@ class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF1A1A2F),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                  child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'Sign In with email',
-                    icon: Icon(
-                      Icons.email,
-                      size: 15,
-                    ),
-                    options: FFButtonOptions(
+                  padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  child: GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, SignUpPage2.routeName),
+                    child: Container(
                       width: 130,
                       height: 40,
-                      color: Color(0xFF373768),
-                      textStyle: FlutterFlowTheme.title2.override(
-                        fontFamily: 'Poppins',
-                        color: Color(0xFFC2C2C2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF373768),
+                        border: Border.all(
+                          color: const Color(0xFF373768),
+                          width: 1,
+                        ),
+                        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                       ),
-                      elevation: 10,
-                      borderSide: BorderSide(
-                        color: Color(0xFF373768),
-                        width: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(Icons.email, size: 30),
+                          SizedBox(width: 20),
+                          AutoSizeText(
+                            'Sign Up with email',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Color(0xFFC2C2C2),
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
                       ),
-                      borderRadius: 15,
                     ),
                   ),
                 ),
@@ -104,7 +111,7 @@ class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF1A1A2F),
                 ),
               ),
@@ -114,33 +121,41 @@ class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF1A1A2F),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                  child: FFButtonWidget(
-                    onPressed: () {
+                  padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  child: GestureDetector(
+                    onTap: () {
                       print('Button pressed ...');
                     },
-                    text: 'Sign In with Google',
-                    icon: FaIcon(
-                      FontAwesomeIcons.google,
-                    ),
-                    options: FFButtonOptions(
+                    child: Container(
                       width: 130,
                       height: 40,
-                      color: Color(0xFF373768),
-                      textStyle: FlutterFlowTheme.title2.override(
-                        fontFamily: 'Poppins',
-                        color: Color(0xFFC2C2C2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF373768),
+                        border: Border.all(
+                          color: const Color(0xFF373768),
+                          width: 1,
+                        ),
+                        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                       ),
-                      elevation: 10,
-                      borderSide: BorderSide(
-                        color: Color(0xFF373768),
-                        width: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          FaIcon(FontAwesomeIcons.google),
+                          SizedBox(width: 20),
+                          AutoSizeText(
+                            'Sign Up with Google',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Color(0xFFC2C2C2),
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
                       ),
-                      borderRadius: 15,
                     ),
                   ),
                 ),
@@ -151,7 +166,7 @@ class _SignUpPage1WidgetState extends State<SignUpPage1Widget> {
               child: Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF1A1A2F),
                 ),
               ),

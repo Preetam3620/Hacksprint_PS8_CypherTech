@@ -32,7 +32,7 @@ class _SignInPageState extends State<SignInPage> {
       key: formKey,
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF1A1A2F),
+        backgroundColor: const Color(0xFF1A1A2F),
         body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
