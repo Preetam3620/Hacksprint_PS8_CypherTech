@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sizer/sizer.dart';
 
 class SelectLanguageCard extends StatefulWidget {
   static const routeName = '/SelectLanguageCard';
@@ -13,7 +14,6 @@ class SelectLanguageCard extends StatefulWidget {
 class _SelectLanguageCardState extends State<SelectLanguageCard> {
   final bool _loadingButton = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,15 +46,14 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                       decoration: const BoxDecoration(
                         color: Color(0xFF373768),
                       ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
-                            child: Text(
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            Text(
                               'Select a language',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -62,23 +61,20 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                 fontSize: 25,
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(-0.3, -0.55),
-                            child: Icon(
+                            Spacer(),
+                            Icon(
                               Icons.close,
                               color: Colors.white,
                               size: 35,
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -91,15 +87,13 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 15, 0, 15),
+                                padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
                                 child: Container(
                                   clipBehavior: Clip.antiAlias,
                                   decoration: const BoxDecoration(
@@ -113,8 +107,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                 ),
                               ),
                               const Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: Text(
                                   'Hindi',
                                   style: TextStyle(
@@ -134,8 +127,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -148,8 +140,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -158,8 +149,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                               Align(
                                 alignment: const AlignmentDirectional(-0.85, 0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 15, 0, 15),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
                                   child: Container(
                                     clipBehavior: Clip.antiAlias,
                                     decoration: const BoxDecoration(
@@ -174,8 +164,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                 ),
                               ),
                               const Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: Text(
                                   'English',
                                   style: TextStyle(
@@ -195,8 +184,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -209,8 +197,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -219,8 +206,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                               Align(
                                 alignment: const AlignmentDirectional(-0.85, 0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 15, 0, 15),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
                                   child: Container(
                                     clipBehavior: Clip.antiAlias,
                                     decoration: const BoxDecoration(
@@ -235,8 +221,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                 ),
                               ),
                               const Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: Text(
                                   'Spanish',
                                   style: TextStyle(
@@ -256,8 +241,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -270,8 +254,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -280,8 +263,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                               Align(
                                 alignment: const AlignmentDirectional(-0.85, 0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 15, 0, 15),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
                                   child: Container(
                                     clipBehavior: Clip.antiAlias,
                                     decoration: const BoxDecoration(
@@ -296,8 +278,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                 ),
                               ),
                               const Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: Text(
                                   'French',
                                   style: TextStyle(
@@ -308,17 +289,18 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                   ),
                                 ),
                               ),
-                              const Spacer()
+                              const Spacer(),
                             ],
                           ),
                         ),
                       ),
                     ),
                   ),
+
+                  // German
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -331,8 +313,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -341,8 +322,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                               Align(
                                 alignment: const AlignmentDirectional(-0.85, 0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 15, 0, 15),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
                                   child: Container(
                                     clipBehavior: Clip.antiAlias,
                                     decoration: const BoxDecoration(
@@ -357,8 +337,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                 ),
                               ),
                               const Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                                 child: Text(
                                   'German',
                                   style: TextStyle(
@@ -369,17 +348,18 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                   ),
                                 ),
                               ),
-                              const Spacer()
+                              const Spacer(),
                             ],
                           ),
                         ),
                       ),
                     ),
                   ),
+
+                  // Done
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 15),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -392,8 +372,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              220, 20, 20, 20),
+                          padding: EdgeInsetsDirectional.fromSTEB(220, 1.h, 20, 1.h),
                           child: Container(
                             width: 130,
                             height: 40,
@@ -403,8 +382,7 @@ class _SelectLanguageCardState extends State<SelectLanguageCard> {
                                 color: Colors.transparent,
                                 width: 1,
                               ),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(12.0)),
+                              borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                             ),
                             child: const Center(
                               child: Text(

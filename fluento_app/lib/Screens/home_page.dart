@@ -1,3 +1,4 @@
+import 'package:fluento_app/Screens/select_language_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,9 +17,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Color(0xFF373768),
+        backgroundColor: const Color(0xFF373768),
         automaticallyImplyLeading: true,
-        title: Text(
+        title: const Text(
           'Fluento',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -30,10 +31,10 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
             child: Container(
               clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
               child: Image.network(
@@ -46,19 +47,19 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         elevation: 4,
       ),
-      backgroundColor: Color(0xFF1A1A2F),
+      backgroundColor: const Color(0xFF1A1A2F),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          print('FloatingActionButton pressed ...');
+          Navigator.pushNamed(context, SelectLanguageCard.routeName);
         },
-        backgroundColor: Color(0xFF6C63FF),
-        icon: Icon(
+        backgroundColor: const Color(0xFF6C63FF),
+        icon: const Icon(
           Icons.add,
           color: Colors.white,
           size: 24,
         ),
         elevation: 8,
-        label: Text(
+        label: const Text(
           'Add Language',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -73,11 +74,11 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           width: 100,
           height: 100,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xFF373768),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   width: 100,
                   height: MediaQuery.of(context).size.height * 0.08,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFF373768),
                   ),
                 ),
@@ -93,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text(
                       'Fluento\n',
                       textAlign: TextAlign.start,
@@ -106,11 +107,11 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                Divider(
+                const Divider(
                   thickness: 3,
                   color: Colors.white,
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Profile',
@@ -122,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Friends',
@@ -134,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Languages',
@@ -146,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
                     'Settings',
@@ -158,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Divider(
+                const Divider(
                   thickness: 3,
                   color: Colors.white,
                 )
