@@ -17,7 +17,8 @@ class SignUpPage3 extends StatefulWidget {
   _SignUpPage3State createState() => _SignUpPage3State();
 }
 
-class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin {
+class _SignUpPage3State extends State<SignUpPage3>
+    with TickerProviderStateMixin {
   late TextEditingController textController1;
   late TextEditingController textController2;
   late bool passwordVisibility;
@@ -33,7 +34,8 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    final user = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final user =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
@@ -94,7 +96,8 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
                       color: Color(0xFF1A1A2F),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                       child: TextFormField(
                         controller: textController1,
                         obscureText: true,
@@ -153,7 +156,8 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
                       color: Color(0xFF1A1A2F),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                       child: TextFormField(
                         controller: textController2,
                         obscureText: !passwordVisibility,
@@ -188,7 +192,9 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
                               () => passwordVisibility = !passwordVisibility,
                             ),
                             child: Icon(
-                              passwordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                              passwordVisibility
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
                               color: const Color(0xFF757575),
                               size: 22,
                             ),
@@ -223,7 +229,8 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
                           color: Color(0xFF1A1A2F),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(220, 30, 20, 30),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              220, 30, 20, 30),
                           child: Container(
                             width: 130,
                             height: 40,
@@ -233,14 +240,18 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
                                 color: Colors.transparent,
                                 width: 1,
                               ),
-                              borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(12.0)),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: const [
                                 Text(
                                   'Next',
-                                  style: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 18),
                                 ),
                                 Icon(
                                   Icons.navigate_next,
@@ -264,7 +275,8 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
   }
 }
 
-Future<void> signUp({required username, required emailID, required password}) async {
+Future<void> signUp(
+    {required username, required emailID, required password}) async {
   final _auth = FirebaseAuth.instance;
   try {
     await _auth.createUserWithEmailAndPassword(
@@ -282,7 +294,8 @@ Future<void> signUp({required username, required emailID, required password}) as
       .set({
         'userName': username,
         'email': emailID,
-        'profileImageURL': '',
+        'profileImageURL':
+            'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png',
       })
       .then((value) => print("User Added"))
       .catchError((error) => print("Failed to add user: $error"));
