@@ -12,8 +12,7 @@ class SignUpPage3 extends StatefulWidget {
   _SignUpPage3State createState() => _SignUpPage3State();
 }
 
-class _SignUpPage3State extends State<SignUpPage3>
-    with TickerProviderStateMixin {
+class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin {
   late TextEditingController textController1;
   late TextEditingController textController2;
   late bool passwordVisibility;
@@ -180,9 +179,7 @@ class _SignUpPage3State extends State<SignUpPage3>
                           () => passwordVisibility = !passwordVisibility,
                         ),
                         child: Icon(
-                          passwordVisibility
-                              ? Icons.visibility_outlined
-                              : Icons.visibility_off_outlined,
+                          passwordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
                           color: const Color(0xFF757575),
                           size: 22,
                         ),
@@ -209,8 +206,7 @@ class _SignUpPage3State extends State<SignUpPage3>
                       color: Color(0xFF1A1A2F),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(220, 40, 20, 40),
+                      padding: const EdgeInsetsDirectional.fromSTEB(220, 30, 20, 30),
                       child: Container(
                         width: 130,
                         height: 40,
@@ -220,18 +216,14 @@ class _SignUpPage3State extends State<SignUpPage3>
                             color: Colors.transparent,
                             width: 1,
                           ),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(12.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text(
                               'Next',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  fontSize: 18),
+                              style: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
                             ),
                             Icon(
                               Icons.navigate_next,

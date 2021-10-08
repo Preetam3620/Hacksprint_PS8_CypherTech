@@ -10,8 +10,7 @@ class SignUpPage2 extends StatefulWidget {
   _SignUpPage2State createState() => _SignUpPage2State();
 }
 
-class _SignUpPage2State extends State<SignUpPage2>
-    with TickerProviderStateMixin {
+class _SignUpPage2State extends State<SignUpPage2> with TickerProviderStateMixin {
   late TextEditingController textController1;
   late TextEditingController textController2;
   final bool _loadingButton = false;
@@ -84,7 +83,7 @@ class _SignUpPage2State extends State<SignUpPage2>
                   color: Color(0xFF1A1A2F),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                   child: TextFormField(
                     controller: textController1,
                     obscureText: false,
@@ -186,8 +185,7 @@ class _SignUpPage2State extends State<SignUpPage2>
             Expanded(
               flex: 4,
               child: GestureDetector(
-                onTap: () =>
-                    Navigator.pushNamed(context, SignUpPage3.routeName),
+                onTap: () => Navigator.pushNamed(context, SignUpPage3.routeName),
                 child: Hero(
                   tag: 'but',
                   child: Container(
@@ -197,8 +195,7 @@ class _SignUpPage2State extends State<SignUpPage2>
                       color: Color(0xFF1A1A2F),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(220, 40, 20, 40),
+                      padding: const EdgeInsetsDirectional.fromSTEB(220, 30, 20, 30),
                       child: Container(
                         width: 130,
                         height: 40,
@@ -208,18 +205,14 @@ class _SignUpPage2State extends State<SignUpPage2>
                             color: Colors.transparent,
                             width: 1,
                           ),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(12.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text(
                               'Next',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  fontSize: 18),
+                              style: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
                             ),
                             Icon(
                               Icons.navigate_next,
