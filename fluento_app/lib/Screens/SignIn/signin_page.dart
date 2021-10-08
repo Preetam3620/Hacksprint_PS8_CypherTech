@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SignInPage extends StatefulWidget {
   static const routeName = '/SignInPage';
+
+  const SignInPage({Key? key}) : super(key: key);
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -29,7 +32,7 @@ class _SignInPageState extends State<SignInPage> {
       key: formKey,
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFF1A1A2F),
         body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -41,23 +44,21 @@ class _SignInPageState extends State<SignInPage> {
                   width: 100,
                   height: 100,
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xFF1A1A2F),
                   ),
                 ),
               ),
               Expanded(
                 flex: 3,
                 child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFEEEEEE),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: Image.asset(
-                        'assets/images/Singup.png',
-                      ).image,
-                    ),
+                  child: SvgPicture.asset(
+                    'assets/images/SignUp.svg',
+                    fit: BoxFit.contain,
+                    width: 100,
+                    height: 100,
+                  ),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
                   ),
                 ),
               ),
@@ -66,8 +67,8 @@ class _SignInPageState extends State<SignInPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
                   ),
                 ),
               ),
@@ -76,44 +77,45 @@ class _SignInPageState extends State<SignInPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                     child: TextFormField(
                       controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Email Id',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           fontFamily: 'Poppins',
+                          color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xFF6C63FF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(5),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xFF6C63FF),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                        prefixIcon: Icon(
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                        prefixIcon: const Icon(
                           Icons.email,
                           color: Color(0xFF6C63FF),
                         ),
                       ),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Poppins',
+                        color: Colors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -129,40 +131,40 @@ class _SignInPageState extends State<SignInPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(0, -1),
+                    alignment: const AlignmentDirectional(0, -1),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                       child: TextFormField(
                         controller: textController2,
                         obscureText: !passwordVisibility,
                         decoration: InputDecoration(
                           hintText: 'Password',
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                             fontFamily: 'Poppins',
+                            color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFF6C63FF),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFF6C63FF),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                          prefixIcon: Icon(
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                          prefixIcon: const Icon(
                             Icons.lock_sharp,
                             color: Color(0xFF6C63FF),
                           ),
@@ -171,16 +173,15 @@ class _SignInPageState extends State<SignInPage> {
                               () => passwordVisibility = !passwordVisibility,
                             ),
                             child: Icon(
-                              passwordVisibility
-                                  ? Icons.visibility_outlined
-                                  : Icons.visibility_off_outlined,
-                              color: Color(0xFF757575),
+                              passwordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                              color: const Color(0xFF757575),
                               size: 22,
                             ),
                           ),
                         ),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: 'Poppins',
+                          color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
@@ -204,63 +205,60 @@ class _SignInPageState extends State<SignInPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFF1A1A2F),
+                      )
+                    ],
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Container(
+                    alignment: const AlignmentDirectional(0, 0),
+                    child: SizedBox(
                       width: 230,
                       height: 44,
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0, 0),
-                            child: Container(
-                                // onPressed: () {
-                                //   print('Button pressed ...');
-                                // },
-                                // text: 'Sign in with Google',
-                                // icon: Icon(
-                                //   Icons.add,
-                                //   color: Colors.transparent,
-                                //   size: 20,
-                                // ),
-                                // options: FFButtonOptions(
-                                //   width: double.infinity,
-                                //   height: double.infinity,
-                                //   color: Colors.white,
-                                //   textStyle: GoogleFonts.getFont(
-                                //     'Poppins',
-                                //     color: Color(0xFF303030),
-                                //     fontWeight: FontWeight.w500,
-                                //     fontSize: 17,
-                                //   ),
-                                //   elevation: 2,
-                                //   borderSide: BorderSide(
-                                //     color: Color(0xFF6C63FF),
-                                //     width: 0,
-                                //   ),
-                                //   borderRadius: 12,
-                                // ),
-                                ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(-0.83, 0),
-                            child: Container(
-                              width: 22,
-                              height: 22,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.network(
-                                'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
-                                fit: BoxFit.contain,
-                              ),
+                      child: GestureDetector(
+                        onTap: () {
+                          // print('Button pressed ...');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF1A1A2F),
+                            border: Border.all(
+                              color: const Color(0xFF6C63FF),
                             ),
-                          )
-                        ],
+                            borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 22,
+                                height: 22,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.network(
+                                  'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                'Sign in with Google',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 17,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -269,14 +267,14 @@ class _SignInPageState extends State<SignInPage> {
               Container(
                 width: 100,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFEEEEEE),
                 ),
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
                   ),
                 ),
               )

@@ -4,6 +4,7 @@ import 'package:sizer/sizer.dart';
 
 import 'Screens/SignIn/signin_page.dart';
 import 'Screens/SignUp/signup_page.dart';
+import 'Screens/WelcomePage/welcome_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Fluento',
           routes: {
-            SignInPage.routeName: (context) => SignInPage(),
-            SignUpPage.routeName: (context) => SignUpPage(),
+            SignInPage.routeName: (context) => const SignInPage(),
+            WelcomePage.routeName: (context) => WelcomePage(),
+            SignUpPage.routeName: (context) => const SignUpPage(),
           },
-          initialRoute: SignInPage.routeName,
+          initialRoute: WelcomePage.routeName,
         );
       },
     );
