@@ -1,3 +1,4 @@
+import 'package:fluento_app/Screens/SignUp/signup_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -9,7 +10,8 @@ class SignUpPage2 extends StatefulWidget {
   _SignUpPage2State createState() => _SignUpPage2State();
 }
 
-class _SignUpPage2State extends State<SignUpPage2> with TickerProviderStateMixin {
+class _SignUpPage2State extends State<SignUpPage2>
+    with TickerProviderStateMixin {
   late TextEditingController textController1;
   late TextEditingController textController2;
   final bool _loadingButton = false;
@@ -47,15 +49,18 @@ class _SignUpPage2State extends State<SignUpPage2> with TickerProviderStateMixin
               flex: 7,
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                child: Container(
-                  child: SvgPicture.asset(
-                    'assets/images/email.svg',
-                    fit: BoxFit.contain,
-                    width: 100,
-                    height: 100,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF1A1A2F),
+                child: Hero(
+                  tag: 'Logo',
+                  child: Container(
+                    child: SvgPicture.asset(
+                      'assets/images/email.svg',
+                      fit: BoxFit.contain,
+                      width: 100,
+                      height: 100,
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1A1A2F),
+                    ),
                   ),
                 ),
               ),
@@ -180,38 +185,50 @@ class _SignUpPage2State extends State<SignUpPage2> with TickerProviderStateMixin
             ),
             Expanded(
               flex: 4,
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1A1A2F),
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(220, 30, 20, 30),
+              child: GestureDetector(
+                onTap: () =>
+                    Navigator.pushNamed(context, SignUpPage3.routeName),
+                child: Hero(
+                  tag: 'but',
                   child: Container(
-                    width: 130,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF6C63FF),
-                      border: Border.all(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                    width: 100,
+                    height: 100,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1A1A2F),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          'Next',
-                          style: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(220, 40, 20, 40),
+                      child: Container(
+                        width: 130,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF6C63FF),
+                          border: Border.all(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12.0)),
                         ),
-                        Icon(
-                          Icons.navigate_next,
-                          color: Colors.white,
-                          size: 24,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Next',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 18),
+                            ),
+                            Icon(
+                              Icons.navigate_next,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

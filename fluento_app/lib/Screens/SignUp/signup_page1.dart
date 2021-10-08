@@ -40,15 +40,18 @@ class _SignUpPage1State extends State<SignUpPage1> {
               flex: 7,
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                child: Container(
-                  child: SvgPicture.asset(
-                    'assets/images/email.svg',
-                    fit: BoxFit.contain,
-                    width: 100,
-                    height: 100,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF1A1A2F),
+                child: Hero(
+                  tag: 'Logo',
+                  child: Container(
+                    child: SvgPicture.asset(
+                      'assets/images/email.svg',
+                      fit: BoxFit.contain,
+                      width: 100,
+                      height: 100,
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1A1A2F),
+                    ),
                   ),
                 ),
               ),
@@ -74,7 +77,8 @@ class _SignUpPage1State extends State<SignUpPage1> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                   child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, SignUpPage2.routeName),
+                    onTap: () =>
+                        Navigator.pushNamed(context, SignUpPage2.routeName),
                     child: Container(
                       width: 130,
                       height: 40,
@@ -84,19 +88,24 @@ class _SignUpPage1State extends State<SignUpPage1> {
                           color: const Color(0xFF373768),
                           width: 1,
                         ),
-                        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(15.0)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Icon(Icons.email, size: 30),
+                          Icon(
+                            Icons.email,
+                            size: 30,
+                            color: Color(0xFFC2C2C2),
+                          ),
                           SizedBox(width: 20),
                           AutoSizeText(
                             'Sign Up with email',
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               color: Color(0xFFC2C2C2),
-                              fontSize: 18,
+                              fontSize: 21,
                             ),
                           ),
                         ],
@@ -139,19 +148,23 @@ class _SignUpPage1State extends State<SignUpPage1> {
                           color: const Color(0xFF373768),
                           width: 1,
                         ),
-                        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(15.0)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          FaIcon(FontAwesomeIcons.google),
+                          FaIcon(
+                            FontAwesomeIcons.google,
+                            color: Color(0xFFC2C2C2),
+                          ),
                           SizedBox(width: 20),
                           AutoSizeText(
                             'Sign Up with Google',
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               color: Color(0xFFC2C2C2),
-                              fontSize: 18,
+                              fontSize: 21,
                             ),
                           ),
                         ],

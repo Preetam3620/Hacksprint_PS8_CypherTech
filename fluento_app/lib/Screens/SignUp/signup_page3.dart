@@ -12,7 +12,8 @@ class SignUpPage3 extends StatefulWidget {
   _SignUpPage3State createState() => _SignUpPage3State();
 }
 
-class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin {
+class _SignUpPage3State extends State<SignUpPage3>
+    with TickerProviderStateMixin {
   late TextEditingController textController1;
   late TextEditingController textController2;
   late bool passwordVisibility;
@@ -50,15 +51,18 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
               flex: 7,
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                child: Container(
-                  child: SvgPicture.asset(
-                    'assets/images/password.svg',
-                    fit: BoxFit.contain,
-                    width: 100,
-                    height: 100,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF1A1A2F),
+                child: Hero(
+                  tag: 'Logo',
+                  child: Container(
+                    child: SvgPicture.asset(
+                      'assets/images/password.svg',
+                      fit: BoxFit.contain,
+                      width: 100,
+                      height: 100,
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1A1A2F),
+                    ),
                   ),
                 ),
               ),
@@ -176,7 +180,9 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
                           () => passwordVisibility = !passwordVisibility,
                         ),
                         child: Icon(
-                          passwordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                          passwordVisibility
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
                           color: const Color(0xFF757575),
                           size: 22,
                         ),
@@ -193,38 +199,48 @@ class _SignUpPage3State extends State<SignUpPage3> with TickerProviderStateMixin
             ),
             Expanded(
               flex: 4,
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1A1A2F),
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(220, 30, 20, 30),
+              child: GestureDetector(
+                child: Hero(
+                  tag: 'but',
                   child: Container(
-                    width: 130,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF6C63FF),
-                      border: Border.all(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                    width: 100,
+                    height: 100,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1A1A2F),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          'Next',
-                          style: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(220, 40, 20, 40),
+                      child: Container(
+                        width: 130,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF6C63FF),
+                          border: Border.all(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12.0)),
                         ),
-                        Icon(
-                          Icons.navigate_next,
-                          color: Colors.white,
-                          size: 24,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Next',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 18),
+                            ),
+                            Icon(
+                              Icons.navigate_next,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

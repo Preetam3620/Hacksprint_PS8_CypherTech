@@ -14,7 +14,7 @@ class _SignInPageState extends State<SignInPage> {
   late TextEditingController textController1;
   late TextEditingController textController2;
   late bool passwordVisibility;
-  bool _loadingButton = false;
+
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -50,15 +50,18 @@ class _SignInPageState extends State<SignInPage> {
               ),
               Expanded(
                 flex: 3,
-                child: Container(
-                  child: SvgPicture.asset(
-                    'assets/images/SignUp.svg',
-                    fit: BoxFit.contain,
-                    width: 100,
-                    height: 100,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF1A1A2F),
+                child: Hero(
+                  tag: "Logo",
+                  child: Container(
+                    child: SvgPicture.asset(
+                      'assets/images/SignUp.svg',
+                      fit: BoxFit.contain,
+                      width: 100,
+                      height: 100,
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1A1A2F),
+                    ),
                   ),
                 ),
               ),
@@ -107,7 +110,8 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        contentPadding: const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                        contentPadding:
+                            const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                         prefixIcon: const Icon(
                           Icons.email,
                           color: Color(0xFF6C63FF),
@@ -137,7 +141,8 @@ class _SignInPageState extends State<SignInPage> {
                   child: Align(
                     alignment: const AlignmentDirectional(0, -1),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                       child: TextFormField(
                         controller: textController2,
                         obscureText: !passwordVisibility,
@@ -163,7 +168,8 @@ class _SignInPageState extends State<SignInPage> {
                             ),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                          contentPadding:
+                              const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                           prefixIcon: const Icon(
                             Icons.lock_sharp,
                             color: Color(0xFF6C63FF),
@@ -173,7 +179,9 @@ class _SignInPageState extends State<SignInPage> {
                               () => passwordVisibility = !passwordVisibility,
                             ),
                             child: Icon(
-                              passwordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                              passwordVisibility
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
                               color: const Color(0xFF757575),
                               size: 22,
                             ),
@@ -228,7 +236,8 @@ class _SignInPageState extends State<SignInPage> {
                             border: Border.all(
                               color: const Color(0xFF6C63FF),
                             ),
-                            borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(12.0)),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

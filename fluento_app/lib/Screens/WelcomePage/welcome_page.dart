@@ -1,3 +1,4 @@
+import 'package:fluento_app/Screens/SignIn/signin_page.dart';
 import 'package:fluento_app/Screens/SignUp/signup_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
@@ -30,15 +31,18 @@ class WelcomePage extends StatelessWidget {
             ),
             Expanded(
               flex: 7,
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1A1A2F),
-                  image: DecorationImage(
-                    fit: BoxFit.fitHeight,
-                    image: AssetImage(
-                      'assets/icons/app_logo.png',
+              child: Hero(
+                tag: 'Logo',
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
+                    image: DecorationImage(
+                      fit: BoxFit.fitHeight,
+                      image: AssetImage(
+                        'assets/icons/app_logo.png',
+                      ),
                     ),
                   ),
                 ),
@@ -68,32 +72,36 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 2,
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1A1A2F),
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                  child: Card(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    color: const Color(0xFF373768),
-                    elevation: 20,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: AutoSizeText(
-                        'Get Started.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
+              flex: 3,
+              child: GestureDetector(
+                onTap: () =>
+                    Navigator.pushNamed(context, SignUpPage1.routeName),
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF1A1A2F),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    child: Card(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      color: const Color(0xFF373768),
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: AutoSizeText(
+                          'Get Started.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: Colors.white,
+                            fontSize: 21,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
@@ -111,9 +119,9 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: GestureDetector(
-                onTap: () => Navigator.pushNamed(context, SignUpPage1.routeName),
+                onTap: () => Navigator.pushNamed(context, SignInPage.routeName),
                 child: Container(
                   width: 100,
                   height: 100,
@@ -125,19 +133,19 @@ class WelcomePage extends StatelessWidget {
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: const Color(0xFFD4D2D2),
-                      elevation: 20,
+                      elevation: 5,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: AutoSizeText(
-                          'Create an account?',
+                          'Already have an account?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             color: Color(0xFF373768),
-                            fontSize: 18,
+                            fontSize: 21,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
