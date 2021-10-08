@@ -32,9 +32,11 @@ class MyApp extends StatelessWidget {
             SignUpPage1.routeName: (context) => const SignUpPage1(),
             SignUpPage2.routeName: (context) => const SignUpPage2(),
             SignUpPage3.routeName: (context) => const SignUpPage3(),
+            SelectLanguageCard.routeName: (context) =>
+                const SelectLanguageCard(),
             HomePage.routeName: (context) => HomePage(),
           },
-          initialRoute: HomePage.routeName,
+          initialRoute: SelectLanguageCard.routeName,
         );
       },
     );
