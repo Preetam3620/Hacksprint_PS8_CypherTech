@@ -8,7 +8,8 @@ import 'package:sizer/sizer.dart';
 import 'Screens/SignIn/signin_page.dart';
 import 'Screens/SignUp/signup_page1.dart';
 import 'Screens/WelcomePage/welcome_page.dart';
-import 'Screens/home_page.dart';
+import 'Screens/homePage.dart';
+import 'Screens/profilepage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +35,9 @@ class MyApp extends StatelessWidget {
             SignUpPage3.routeName: (context) => const SignUpPage3(),
             SelectLanguageCard.routeName: (context) => const SelectLanguageCard(),
             HomePage.routeName: (context) => HomePage(),
+            profilepage.routeName: (context) => profilepage(),
           },
+          // initialRoute: profilepage.routeName,
           initialRoute: HomePage.routeName,
         );
       },
