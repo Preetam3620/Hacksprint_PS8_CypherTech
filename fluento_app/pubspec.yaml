@@ -20,8 +20,9 @@ dependencies:
   firebase_storage: ^10.0.3
   auto_size_text_pk: ^3.0.0
   font_awesome_flutter: ^9.1.0
-
+  
   cupertino_icons: ^1.0.2
+
 
 dev_dependencies:
   flutter_test:
@@ -33,9 +34,14 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/audios/
     - assets/images/
     - assets/icons/
     - assets/beginnerImages/numbers/
+    - assets/beginnerImages/animals/
+    - assets/beginnerImages/colors/
+    - assets/beginnerImages/family/
+    - assets/beginnerImages/greetings/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
