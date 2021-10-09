@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluento_app/Screens/friends/friendspage.dart';
+import 'package:fluento_app/Screens/friends/friends_page.dart';
 import 'package:fluento_app/Screens/requestpage.dart';
 import 'package:fluento_app/Screens/select_language_card.dart';
 import 'package:flutter/material.dart';
