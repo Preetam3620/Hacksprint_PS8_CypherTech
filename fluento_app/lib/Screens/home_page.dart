@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluento_app/Screens/friends/friends_page.dart';
+import 'package:fluento_app/Screens/leaderboard.dart';
 import 'package:fluento_app/Screens/requestpage.dart';
 import 'package:fluento_app/Screens/select_language_card.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,8 @@ class _HomePageState extends State<HomePage> {
 
   int count(Map Mapi) {
     int cnt = 0;
+    print('yo');
+    print(Mapi);
     Mapi.forEach((k, v) {
       if (v != 0) cnt++;
     });
@@ -79,17 +82,21 @@ class _HomePageState extends State<HomePage> {
           } else {
             Map<String, dynamic> profile =
                 snapshot.data!.data() as Map<String, dynamic>;
-            return (profile['languages'].length != 0)
+
+            return (profile['languages'].length !=
+                    0) //(profile['languages'].length != 0)
                 ? ListView.builder(
                     shrinkWrap: true,
-                    itemCount: profile['languages'].length,
+                    itemCount: profile['languages']
+                        .length, //profile['languages'].length,
                     itemBuilder: (context, index) {
                       return SizedBox(
                         height: 30.h,
                         child: GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, LanguagePage.routeName,
-                                arguments: index);
+                                arguments:
+                                    profile['languages'].keys.elementAt(index));
                           },
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -113,8 +120,7 @@ class _HomePageState extends State<HomePage> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        profile['languages'][index]
-                                            ['languageName'],
+                                        '${profile['languages'].keys.elementAt(index)}',
                                         style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
@@ -139,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: SvgPicture.asset(
-                                            'assets/images/${profile['languages'][index]['languageName']}.svg',
+                                            'assets/images/${profile['languages'].keys.elementAt(index)}.svg', //${profile['languages'][index]['languageName']}
                                           ),
                                         ),
                                       )
@@ -161,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        '${count(profile['languages'][index]['beginner'])}',
+                                        '${count(profile['languages'][profile['languages'].keys.elementAt(index)]['beginner'])}',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
@@ -186,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        '${count(profile['languages'][index]['intermediate'])}',
+                                        '${count(profile['languages'][profile['languages'].keys.elementAt(index)]['intermediate'])}', //${count(profile.data(['languages'][index])',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
@@ -211,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        '${count(profile['languages'][index]['advance'])}',
+                                        '${count(profile['languages'][profile['languages'].keys.elementAt(index)]['advance'])}', //${count(profile['languages'][index]['advance'])}',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
@@ -353,6 +359,22 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                GestureDetector(
+                  onTap: () =>
+                      Navigator.pushNamed(context, leaderBoard.routeName),
+                  child: const Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                    child: Text(
+                      'Leaderboard',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
                 const Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: Text(
@@ -377,3 +399,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+class $ {}

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluento_app/Screens/Language-Page/language_page.dart';
+import 'package:fluento_app/Screens/Language-Page/language_page.dart';
 import 'package:fluento_app/Screens/Question/quiz_handler.dart';
 import 'package:fluento_app/Screens/SignUp/signup_page2.dart';
 import 'package:fluento_app/Screens/SignUp/signup_page3.dart';
@@ -18,6 +19,8 @@ import 'Screens/profile_page.dart';
 import 'Screens/Question/screens/BeginnerScreens/3ops_noimg.dart';
 import 'Screens/Question/screens/BeginnerScreens/4ops_img.dart';
 import 'Screens/Question/screens/BeginnerScreens/4ops_noimag.dart';
+import 'Screens/Question/screens/BeginnerScreens/3ops_img.dart';
+import 'Screens/leaderboard.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,7 +53,12 @@ class MyApp extends StatelessWidget {
             addFriendsCard.routeName: (context) => addFriendsCard(),
             requestPage.routeName: (context) => requestPage(),
             LanguagePage.routeName: (context) => const LanguagePage(),
+            leaderBoard.routeName: (context) => leaderBoard(),
             FOpsImage.routeName: (context) => FOpsImage(
+                  quizNo: '',
+                  level: '',
+                  langName: '',
+                  length: 0,
                   title: '',
                   imageString: '',
                   optionC: '',
@@ -61,8 +69,50 @@ class MyApp extends StatelessWidget {
                   optionA: '',
                   quesNo: 1,
                 ),
-            fopsNoImage.routeName: (context) => fopsNoImage(),
-            topsnoimage.routeName: (context) => topsnoimage(),
+            fopsNoImage.routeName: (context) => fopsNoImage(
+                  quizNo: '',
+                  level: '',
+                  langName: '',
+                  length: 0,
+                  title: '',
+                  optionC: '',
+                  optionD: '',
+                  optionB: '',
+                  questionText: '',
+                  answer: '',
+                  optionA: '',
+                  quesNo: 1,
+                ),
+            topsnoimage.routeName: (context) => topsnoimage(
+                  quizNo: '',
+                  level: '',
+                  langName: '',
+                  length: 0,
+                  title: '',
+                  imageString: '',
+                  optionC: '',
+                  optionD: '',
+                  optionB: '',
+                  questionText: '',
+                  answer: '',
+                  optionA: '',
+                  quesNo: 1,
+                ),
+            topsimg.routeName: (context) => topsimg(
+                  quizNo: '',
+                  level: '',
+                  langName: '',
+                  length: 0,
+                  title: '',
+                  imageString: '',
+                  optionC: '',
+                  optionD: '',
+                  optionB: '',
+                  questionText: '',
+                  answer: '',
+                  optionA: '',
+                  quesNo: 1,
+                ),
             QuizHandler.routeName: (context) => QuizHandler(),
           },
           initialRoute: WelcomePage.routeName,
