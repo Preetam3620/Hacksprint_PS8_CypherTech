@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sizer/sizer.dart';
 
 class LanguagePage extends StatefulWidget {
   static const routeName = '/LanguagePage';
@@ -45,106 +46,265 @@ class _LanguagePageState extends State<LanguagePage> {
           elevation: 5,
         ),
         backgroundColor: const Color(0xFF1A1A2F),
-        body: FutureBuilder<DocumentSnapshot>(
-          future: getUserDocRef(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: Text('Data is loading'));
-            } else {
-              Map<String, dynamic> profile = snapshot.data!.data() as Map<String, dynamic>;
-              final language = profile['languages'][langIndex];
-              return Column(
-                mainAxisSize: MainAxisSize.max,
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        language['languageName'],
-                        style: const TextStyle(
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: FutureBuilder<DocumentSnapshot>(
+            future: getUserDocRef(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: Text('Data is loading'));
+              } else {
+                Map<String, dynamic> profile =
+                    snapshot.data!.data() as Map<String, dynamic>;
+                final language = profile['languages'][langIndex];
+                return Column(
+                  mainAxisSize: MainAxisSize.max,
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          language['languageName'],
+                          style: const TextStyle(
+                            fontFamily: 'Poppins',
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.11,
+                            height: MediaQuery.of(context).size.width * 0.11,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/images/${language['languageName']}.svg',
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Divider(color: Colors.white),
+                    ExpansionTile(
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white,
+                      title: Text(
+                        'Beginner',
+                        style: TextStyle(
                           fontFamily: 'Poppins',
                           color: Colors.white,
-                          fontSize: 30,
+                          fontSize: 22,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.11,
-                          height: MediaQuery.of(context).size.width * 0.11,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/images/${language['languageName']}.svg',
-                          ),
+                      children: <Widget>[
+                        ListTile(
+                          title: Text('Module 1: Animals', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial1']}',
+                              style: k20TextStyle),
                         ),
-                      )
-                    ],
-                  ),
-                  Divider(color: Colors.white),
-                  ExpansionTile(
-                    title: Text(
-                      'Beginner',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
+                        ListTile(
+                          title: Text('Quiz 1', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz1']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 2', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial2']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 2', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz2']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 3', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial3']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 3', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz3']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 4', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial4']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 4', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz4']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 5', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial5']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 5', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz5']}',
+                              style: k20TextStyle),
+                        ),
+                      ],
                     ),
-                    children: <Widget>[
-                      ListTile(
-                        title: Text('Tutorial 1', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Tutorial1']}', style: k20TextStyle),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    ExpansionTile(
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white,
+                      title: Text(
+                        'Intermediate',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                      ListTile(
-                        title: Text('Quiz 1', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Quiz1']}', style: k20TextStyle),
+                      children: <Widget>[
+                        ListTile(
+                          title: Text('Module 1', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial1']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 1', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz1']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 2', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial2']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 2', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz2']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 3', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial3']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 3', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz3']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 4', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial4']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 4', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz4']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 5', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial5']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 5', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz5']}',
+                              style: k20TextStyle),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    ExpansionTile(
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white,
+                      title: Text(
+                        'Advance',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                      ListTile(
-                        title: Text('Tutorial 2', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Tutorial2']}', style: k20TextStyle),
-                      ),
-                      ListTile(
-                        title: Text('Quiz 2', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Quiz2']}', style: k20TextStyle),
-                      ),
-                      ListTile(
-                        title: Text('Tutorial 3', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Tutorial3']}', style: k20TextStyle),
-                      ),
-                      ListTile(
-                        title: Text('Quiz 3', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Quiz3']}', style: k20TextStyle),
-                      ),
-                      ListTile(
-                        title: Text('Tutorial 4', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Tutorial4']}', style: k20TextStyle),
-                      ),
-                      ListTile(
-                        title: Text('Quiz 4', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Quiz4']}', style: k20TextStyle),
-                      ),
-                      ListTile(
-                        title: Text('Tutorial 5', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Tutorial5']}', style: k20TextStyle),
-                      ),
-                      ListTile(
-                        title: Text('Quiz 5', style: k20TextStyle),
-                        trailing: Text('${language['beginner']['Quiz5']}', style: k20TextStyle),
-                      ),
-                    ],
-                  )
-                ],
-              );
-            }
-          },
+                      children: <Widget>[
+                        ListTile(
+                          title: Text('Module 1', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial1']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 1', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz1']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 2', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial2']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 2', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz2']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 3', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial3']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 3', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz3']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 4', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial4']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 4', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz4']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Module 5', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Tutorial5']}',
+                              style: k20TextStyle),
+                        ),
+                        ListTile(
+                          title: Text('Quiz 5', style: k20TextStyle),
+                          trailing: Text('${language['beginner']['Quiz5']}',
+                              style: k20TextStyle),
+                        ),
+                      ],
+                    )
+                  ],
+                );
+              }
+            },
+          ),
         ),
       ),
     );
@@ -153,7 +313,8 @@ class _LanguagePageState extends State<LanguagePage> {
 
 Future<DocumentSnapshot> getUserDocRef() async {
   final uid = FirebaseAuth.instance.currentUser!.uid;
-  DocumentReference userDocRef = FirebaseFirestore.instance.collection('profiles').doc(uid);
+  DocumentReference userDocRef =
+      FirebaseFirestore.instance.collection('profiles').doc(uid);
   return userDocRef.get();
 }
 

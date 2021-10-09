@@ -294,6 +294,7 @@ Future<void> signUp(
       .set({
         'userName': username,
         'email': emailID,
+        'languages': [],
         'profileImageURL':
             'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png',
       })

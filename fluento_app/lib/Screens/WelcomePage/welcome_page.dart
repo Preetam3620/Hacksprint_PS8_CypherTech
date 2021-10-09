@@ -19,6 +19,8 @@ class _WelcomePageState extends State<WelcomePage> {
   var _is;
   ispresent() async {
     _is = await FirebaseAuth.instance.currentUser!.uid;
+    print(_is);
+    setState(() {});
   }
 
   void initState() {
@@ -92,7 +94,8 @@ class _WelcomePageState extends State<WelcomePage> {
                   Expanded(
                     flex: 3,
                     child: GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, SignUpPage1.routeName),
+                      onTap: () =>
+                          Navigator.pushNamed(context, SignUpPage1.routeName),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -100,7 +103,8 @@ class _WelcomePageState extends State<WelcomePage> {
                           color: Color(0xFF1A1A2F),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10, 0, 10, 0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: const Color(0xFF373768),
@@ -138,7 +142,8 @@ class _WelcomePageState extends State<WelcomePage> {
                   Expanded(
                     flex: 3,
                     child: GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, SignInPage.routeName),
+                      onTap: () =>
+                          Navigator.pushNamed(context, SignInPage.routeName),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -146,7 +151,8 @@ class _WelcomePageState extends State<WelcomePage> {
                           color: Color(0xFF1A1A2F),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10, 0, 10, 0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: const Color(0xFFD4D2D2),
