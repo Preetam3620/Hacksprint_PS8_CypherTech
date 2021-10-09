@@ -14,6 +14,9 @@ import 'Screens/WelcomePage/welcome_page.dart';
 import 'Screens/friends/friends_page.dart';
 import 'Screens/home_page.dart';
 import 'Screens/profile_page.dart';
+import 'Screens/Question/screens/BeginnerScreens/3ops_noimg.dart';
+import 'Screens/Question/screens/BeginnerScreens/4ops_img.dart';
+import 'Screens/Question/screens/BeginnerScreens/4ops_noimag.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,8 +49,11 @@ class MyApp extends StatelessWidget {
             addFriendsCard.routeName: (context) => addFriendsCard(),
             requestPage.routeName: (context) => requestPage(),
             LanguagePage.routeName: (context) => const LanguagePage(),
+            fopsImage.routeName: (context) => fopsImage(),
+            fopsNoImage.routeName: (context) => fopsNoImage(),
+            topsnoimage.routeName: (context) => topsnoimage(),
           },
-          initialRoute: WelcomePage.routeName,
+          initialRoute: fopsNoImage.routeName,
         );
       },
     );
