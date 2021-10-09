@@ -8,6 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'Language-Page/language_page.dart';
+
 class HomePage extends StatefulWidget {
   static const routeName = '/HomePage';
 
@@ -17,14 +19,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  @override
 
-  //
-  final Stream<DocumentSnapshot<Map<String, dynamic>>> _profileinfo =
-      FirebaseFirestore.instance
-          .collection('profiles')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .snapshots();
+  final Stream<DocumentSnapshot<Map<String, dynamic>>> _profileInfo =
+      FirebaseFirestore.instance.collection('profiles').doc(FirebaseAuth.instance.currentUser!.uid).snapshots();
   @override
   void initState() {
     super.initState();
@@ -48,61 +45,59 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
-          // Padding(
-          //   padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-          //   child: Container(
-          //       clipBehavior: Clip.antiAlias,
-          //       decoration: const BoxDecoration(
-          //         shape: BoxShape.circle,
-          //       ),
-          //       child: Image.network(' ', fit: BoxFit.cover)),
-          // )
+          /*Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                ),
+                child: Image.network(' ', fit: BoxFit.cover)),
+          )*/
         ],
         centerTitle: true,
         elevation: 5,
       ),
       backgroundColor: const Color(0xFF1A1A2F),
       body: StreamBuilder<DocumentSnapshot>(
-        stream: _profileinfo,
+        stream: _profileInfo,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: Text('Data is loading'));
+            return const Center(child: Text('Data is loading'));
           } else {
-            Map<String, dynamic> profile =
-                snapshot.data!.data() as Map<String, dynamic>;
+            Map<String, dynamic> profile = snapshot.data!.data() as Map<String, dynamic>;
             return (profile['languages'].length != 0)
                 ? ListView.builder(
                     shrinkWrap: true,
                     itemCount: profile['languages'].length,
                     itemBuilder: (context, index) {
-                      return Container(
+                      return SizedBox(
                         height: 30.h,
                         child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, LanguagePage.routeName, arguments: index);
+                          },
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: Color(0xFF262647),
+                            color: const Color(0xFF262647),
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10, 10, 10, 10),
+                              padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        profile['languages'][index]
-                                            ['languageName'],
-                                        style: TextStyle(
+                                        profile['languages'][index]['languageName'],
+                                        style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 30,
@@ -110,19 +105,12 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
+                                        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                                         child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.11,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.11,
+                                          width: MediaQuery.of(context).size.width * 0.11,
+                                          height: MediaQuery.of(context).size.width * 0.11,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: SvgPicture.asset(
@@ -132,15 +120,12 @@ class _HomePageState extends State<HomePage> {
                                       )
                                     ],
                                   ),
-                                  Divider(
-                                    color: Colors.white,
-                                  ),
+                                  const Divider(color: Colors.white),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Beginner',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
@@ -151,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       Text(
                                         '${profile['languages'][index]['beginner'].length}/10',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 22,
@@ -162,10 +147,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Intermediate',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
@@ -176,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       Text(
                                         '${profile['languages'][index]['intermediate'].length}/10',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 22,
@@ -187,10 +171,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Advance',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
@@ -201,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       Text(
                                         '${profile['languages'][index]['advance'].length}/10',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 22,
@@ -299,8 +282,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () =>
-                      Navigator.pushNamed(context, FriendsPage.routeName),
+                  onTap: () => Navigator.pushNamed(context, FriendsPage.routeName),
                   child: const Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                     child: Text(
@@ -315,8 +297,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () =>
-                      Navigator.pushNamed(context, requestPage.routeName),
+                  onTap: () => Navigator.pushNamed(context, requestPage.routeName),
                   child: const Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                     child: Text(
