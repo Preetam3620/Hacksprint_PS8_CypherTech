@@ -30,6 +30,15 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  int count(Map Mapi) {
+    int cnt = 0;
+    Mapi.forEach((k, v) {
+      if (v != 0) cnt++;
+    });
+
+    return cnt;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        '${profile['languages'][index]['beginner'].length}/10',
+                                        '${count(profile['languages'][index]['beginner'])}',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
@@ -175,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        '${profile['languages'][index]['intermediate'].length}/10',
+                                        '${count(profile['languages'][index]['intermediate'])}',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
@@ -200,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        '${profile['languages'][index]['advance'].length}/10',
+                                        '${count(profile['languages'][index]['advance'])}',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
