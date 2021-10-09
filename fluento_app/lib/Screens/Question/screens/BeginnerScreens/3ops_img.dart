@@ -1,12 +1,49 @@
+import 'package:fluento_app/Screens/Language-Page/language_page.dart';
+import 'package:fluento_app/Screens/Question/quiz_handler.dart';
+import 'package:fluento_app/Screens/Question/screens/BeginnerScreens/4ops_img.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class topsimg extends StatefulWidget {
+  final String title;
+  final String questionText;
+  final String imageString;
+  final String optionA;
+  final String optionB;
+  final String optionC;
+  final String optionD;
+  final String answer;
+  final int quesNo;
+  final int length;
+  final String langName;
+  final String level;
+  final String quizNo;
+
+  topsimg({
+    required this.title,
+    required this.questionText,
+    required this.imageString,
+    required this.optionA,
+    required this.optionB,
+    required this.optionC,
+    required this.optionD,
+    required this.answer,
+    required this.quesNo,
+    required this.length,
+    required this.langName,
+    required this.level,
+    required this.quizNo,
+  });
   @override
   _topsimgState createState() => _topsimgState();
+  static const routeName = '/topsimg';
 }
 
 class _topsimgState extends State<topsimg> {
+  bool isA = false;
+  bool isB = false;
+  bool isC = false;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -17,7 +54,7 @@ class _topsimgState extends State<topsimg> {
         backgroundColor: Color(0xFF2A2A44),
         automaticallyImplyLeading: true,
         title: Text(
-          'Module 1',
+          widget.title,
           style: TextStyle(
             fontFamily: 'Poppins',
             color: Colors.white,
@@ -37,6 +74,7 @@ class _topsimgState extends State<topsimg> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Question No
               Expanded(
                 flex: 2,
                 child: Padding(
@@ -53,7 +91,7 @@ class _topsimgState extends State<topsimg> {
                     child: Align(
                       alignment: AlignmentDirectional(-0.95, -0.75),
                       child: Text(
-                        'Question 1',
+                        'Question ${widget.quesNo}:',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontFamily: 'Poppins',
@@ -66,6 +104,8 @@ class _topsimgState extends State<topsimg> {
                   ),
                 ),
               ),
+
+              // Question Text
               Expanded(
                 flex: 3,
                 child: Padding(
@@ -82,7 +122,7 @@ class _topsimgState extends State<topsimg> {
                     child: Align(
                       alignment: AlignmentDirectional(-0.9, -0.75),
                       child: Text(
-                        'Identify the image ',
+                        widget.questionText,
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontFamily: 'Poppins',
@@ -95,6 +135,8 @@ class _topsimgState extends State<topsimg> {
                   ),
                 ),
               ),
+
+              // Question Image
               Expanded(
                 flex: 6,
                 child: Container(
@@ -106,11 +148,11 @@ class _topsimgState extends State<topsimg> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      'https://picsum.photos/seed/676/600',
+                    child: Image.asset(
+                      widget.imageString,
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.25,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -124,99 +166,127 @@ class _topsimgState extends State<topsimg> {
                   ),
                 ),
               ),
+
+              // Option A
               Expanded(
                 flex: 2,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1A1A2F),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Color(0xFF2A2A44),
-                        width: 5,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (widget.optionA == widget.answer) isA = true;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: isA ? Colors.green : Color(0xFF1A1A2F),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Color(0xFF2A2A44),
+                          width: 5,
+                        ),
                       ),
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0.1),
-                      child: Text(
-                        'Option A',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0.1),
+                        child: Text(
+                          widget.optionA,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: isA ? Colors.black : Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
+
+              // Option B
               Expanded(
                 flex: 2,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1A1A2F),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Color(0xFF2A2A44),
-                        width: 5,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (widget.optionB == widget.answer) isB = true;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: isB ? Colors.green : Color(0xFF1A1A2F),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Color(0xFF2A2A44),
+                          width: 5,
+                        ),
                       ),
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0.1),
-                      child: Text(
-                        'Option B',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0.1),
+                        child: Text(
+                          widget.optionB,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: isB ? Colors.black : Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
+
+              // Option C
               Expanded(
                 flex: 2,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1A1A2F),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Color(0xFF2A2A44),
-                        width: 5,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (widget.optionC == widget.answer) isC = true;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: isC ? Colors.green : Color(0xFF1A1A2F),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Color(0xFF2A2A44),
+                          width: 5,
+                        ),
                       ),
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0.1),
-                      child: Text(
-                        'Option C',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0.1),
+                        child: Text(
+                          widget.optionC,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: isC ? Colors.black : Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
+
               Expanded(
                 child: Container(
                   width: 100,
@@ -226,28 +296,56 @@ class _topsimgState extends State<topsimg> {
                   ),
                 ),
               ),
+
+              // Next Button
               Expanded(
                 flex: 2,
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF6C63FF),
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(
-                      color: Color(0xFF2A2A44),
+                child: GestureDetector(
+                  onTap: () async {
+                    if (widget.quesNo == widget.length) {
+                      if (isA == true || isB == true || isC == true) {
+                        score += 1;
+                        print(score);
+                      }
+                      await updateScrore(
+                          score: score,
+                          langName: widget.langName,
+                          title: widget.quizNo,
+                          level: widget.level);
+                      Navigator.pushReplacementNamed(
+                          context, LanguagePage.routeName,
+                          arguments: widget.langName);
+                      score = 0;
+                      currentPage = 0;
+                    } else {
+                      if (isA == true || isB == true || isC == true) {
+                        score += 1;
+                        print(score);
+                      }
+                      increasePageView();
+                    }
+                  },
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF6C63FF),
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: Color(0xFF2A2A44),
+                      ),
                     ),
-                  ),
-                  child: Align(
-                    alignment: AlignmentDirectional(0, -0.15),
-                    child: Text(
-                      'Next',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
+                    child: Align(
+                      alignment: AlignmentDirectional(0, -0.15),
+                      child: Text(
+                        'Next',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),

@@ -541,20 +541,22 @@ Future<void> addLanguage({required langName}) async {
     'Tutorial5': 0,
     'Quiz5': 0,
   };
-  Map<String, dynamic> language = {
-    'languageName': langName,
+
+  Map<String, dynamic> langNameMap = {
     'beginner': beginnerMap,
     'intermediate': intermediateMap,
     'advance': advanceMap,
   };
 
+  Map<String, dynamic> language = {langName: langNameMap};
+
   final uid = FirebaseAuth.instance.currentUser!.uid;
   DocumentReference user =
       FirebaseFirestore.instance.collection('profiles').doc(uid);
   await user
-      .update({
-        'languages': FieldValue.arrayUnion([language]),
-      })
+      .set({
+        'languages': language,
+      }, SetOptions(merge: true))
       .then((value) => print("Language Added"))
       .catchError((error) => print("Failed to add language: $error"));
 }

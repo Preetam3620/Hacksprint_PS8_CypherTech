@@ -1,27 +1,4 @@
-class McqQuestion {
-  String questionType;
-  String questionText;
-  String imageString;
-  String optionA;
-  String optionB;
-  String optionC;
-  String optionD;
-  String answer;
-  McqQuestion({
-    required this.questionType,
-    required this.questionText,
-    required this.imageString,
-    required this.optionA,
-    required this.optionB,
-    required this.optionC,
-    required this.optionD,
-    required this.answer,
-  });
-}
-
-// 3MNI = 3 mcq no image
-// 4MNI = 4 mcq no image
-// 4MI = 4 mcq with image
+import 'question.dart';
 
 List<McqQuestion> EnglishTutNumber = [
   McqQuestion(
@@ -40,7 +17,7 @@ List<McqQuestion> EnglishTutNumber = [
       optionA: 'eight',
       optionB: 'seven',
       optionC: 'one',
-      optionD: 'पांच',
+      optionD: 'five',
       answer: 'one'),
   McqQuestion(
       questionType: '4MI',
@@ -48,7 +25,7 @@ List<McqQuestion> EnglishTutNumber = [
       imageString: 'assets/beginnerImages/numbers/t3.png',
       optionA: 'three',
       optionB: 'one',
-      optionC: 'छह',
+      optionC: 'six',
       optionD: 'two',
       answer: 'two'),
   McqQuestion(
@@ -75,7 +52,7 @@ List<McqQuestion> EnglishTutNumber = [
       imageString: 'assets/beginnerImages/numbers/t6.png',
       optionA: 'five',
       optionB: 'thirty seven',
-      optionC: 'fifty-five ',
+      optionC: 'fifty-five',
       optionD: 'forty-five',
       answer: 'fifty-five'),
   McqQuestion(
@@ -96,6 +73,80 @@ List<McqQuestion> EnglishTutNumber = [
       optionC: 'sixty-nine',
       optionD: 'forty-eight',
       answer: 'sixty-nine'),
+];
+List<McqQuestion> EnglishQuizNumber = [
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'छवि में संख्या को सही ढंग से पहचानें',
+      imageString: 'assets/beginnerImages/numbers/q1.png',
+      optionA: 'one',
+      optionB: 'zero',
+      optionC: 'two',
+      optionD: 'three',
+      answer: 'two'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'सात को अंग्रेजी में क्या कहते हैं?',
+      imageString: '',
+      optionA: 'eight',
+      optionB: 'seven',
+      optionC: 'six',
+      optionD: 'five',
+      answer: 'seven'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'पांच से पहले कौन सी संख्या आती है?',
+      imageString: '',
+      optionA: 'Three',
+      optionB: 'one',
+      optionC: 'six',
+      optionD: 'four',
+      answer: 'four'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'दी गई संख्या की सही पहचान करें',
+      imageString: 'assets/beginnerImages/numbers/q4.png',
+      optionA: 'one',
+      optionB: 'two',
+      optionC: 'zero',
+      optionD: 'five',
+      answer: 'five'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'अस्सी को अंग्रेजी में क्या कहते हैं?',
+      imageString: '',
+      optionA: 'forty-five',
+      optionB: 'eighty-four',
+      optionC: 'eighty-three',
+      optionD: 'forty-eight',
+      answer: 'eighty-three'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'दी गई संख्या को पहचानें?',
+      imageString: 'assets/beginnerImages/numbers/q6.png',
+      optionA: 'five',
+      optionB: 'thirty-seven',
+      optionC: 'twenty-seven',
+      optionD: 'forty-five',
+      answer: 'twenty-seven'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'कौन सी संख्या आठ से बड़ी है?',
+      imageString: '',
+      optionA: 'two',
+      optionB: 'five',
+      optionC: 'nine',
+      optionD: 'seven',
+      answer: 'nine'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'दी गई संख्या को पहचानें?',
+      imageString: 'assets/beginnerImages/numbers/q8.png',
+      optionA: 'forty-five',
+      optionB: 'eighty-four',
+      optionC: 'twenty seven',
+      optionD: 'forty-eight',
+      answer: 'forty-eight'),
 ];
 
 List<McqQuestion> EnglishTutAnimals = [
@@ -125,7 +176,7 @@ List<McqQuestion> EnglishTutAnimals = [
       optionB: 'Lion',
       optionC: 'Tiger',
       optionD: 'Whale',
-      answer: ' Leopard'),
+      answer: 'Leopard'),
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा जानवर है?',
@@ -134,7 +185,7 @@ List<McqQuestion> EnglishTutAnimals = [
       optionB: 'Whale',
       optionC: 'Tiger',
       optionD: 'Parrot',
-      answer: 'Parrot'),
+      answer: 'Tiger'),
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा जानवर है?',
@@ -152,7 +203,7 @@ List<McqQuestion> EnglishTutAnimals = [
       optionB: 'Leopard',
       optionC: 'Tiger',
       optionD: 'Cat',
-      answer: 'Cat'),
+      answer: 'Crocodile'),
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा जानवर है?',
@@ -180,6 +231,53 @@ List<McqQuestion> EnglishTutAnimals = [
       optionC: 'Penguin',
       optionD: 'Dog',
       answer: 'Penguin'),
+];
+List<McqQuestion> EnglishQuizAnimals = [
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'जानवर की पहचान करें',
+      imageString: 'assets/beginnerImages/animals/q1.png',
+      optionA: 'Tiger',
+      optionB: 'Leopard',
+      optionC: 'Duck',
+      optionD: 'Elephant',
+      answer: 'Elephant'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'कौन सा जानवर अंडे देता है',
+      imageString: '',
+      optionA: 'Crocodile',
+      optionB: 'Tiger',
+      optionC: 'Lion',
+      optionD: 'Elephant',
+      answer: 'Crocodile'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'तेंदुए का अंग्रेजी नाम दें-',
+      imageString: '',
+      optionA: 'Leopard',
+      optionB: 'Prawns',
+      optionC: 'Blue Whale',
+      optionD: 'Cat',
+      answer: 'Leopard'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'विषम को पहचानें:',
+      imageString: '',
+      optionA: 'Tiger',
+      optionB: 'Dog',
+      optionC: 'Whale',
+      optionD: 'cat',
+      answer: 'Whale'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'निम्नलिखित में से कौन सा पालतू जानवरों के लिए अच्छा है?',
+      imageString: '',
+      optionA: 'Dog',
+      optionB: 'Tiger',
+      optionC: 'Lion',
+      optionD: 'Whale',
+      answer: 'Dog'),
 ];
 
 List<McqQuestion> EnglishTutGreetings = [
@@ -231,10 +329,58 @@ List<McqQuestion> EnglishTutGreetings = [
       optionD: '',
       answer: 'Good night'),
 ];
-
-List<McqQuestion> EnglishTutFamilytree = [
+List<McqQuestion> EnglishQuizGreetings = [
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: '1.	अनुवाद - अच्छा काम',
+      imageString: '',
+      optionA: 'Good job',
+      optionB: 'Hello',
+      optionC: 'Nice to meet you',
+      optionD: 'Good morning',
+      answer: 'Good job'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: '2.	प्रश्न का उत्तर दें- \'How are you\'?\’',
+      imageString: '',
+      optionA: 'Good Afternoon',
+      optionB: 'I’m good',
+      optionC: 'Thank you',
+      optionD: 'Congratulations',
+      answer: 'I’m good'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: '3.	हम कैसे माफी मांगें?',
+      imageString: '',
+      optionA: 'Thanks',
+      optionB: 'I’m sorry',
+      optionC: 'Yes',
+      optionD: 'Welcome',
+      answer: 'I’m sorry'),
   McqQuestion(
       questionType: '4MI',
+      questionText: '4.	वे क्या कर रहे हैं?',
+      imageString: 'assets/beginnerImages/greetings/q4.png',
+      optionA: 'Greeting',
+      optionB: 'Fighting',
+      optionC: 'Ignoring',
+      optionD: 'Playing',
+      answer: 'Greeting'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText:
+          '5.	संबंधित क्रम में बधाई निर्दिष्ट करें: रात, दोपहर, सुबह ',
+      imageString: '',
+      optionA: 'Good Morning, Good afternoon, Good Night',
+      optionB: 'Good Afternoon, Good Morning, Good Night',
+      optionC: 'Good Night, Good afternoon, Good Morning',
+      optionD: 'Good Night, Good Morning, Good afternoon',
+      answer: 'Good Morning, Good afternoon, Good Night'),
+];
+
+List<McqQuestion> EnglishTutFamily = [
+  McqQuestion(
+      questionType: '4MNI',
       questionText: 'पिता, माता, बहन मेरे हैं',
       imageString: '',
       optionA: 'Parents',
@@ -243,7 +389,7 @@ List<McqQuestion> EnglishTutFamilytree = [
       optionD: 'Grandparents',
       answer: 'Family'),
   McqQuestion(
-      questionType: '4MI',
+      questionType: '4MNI',
       questionText: 'मेरे एक पिता और माता हैं। वे मेरे हैं',
       imageString: '',
       optionA: 'Family',
@@ -254,14 +400,14 @@ List<McqQuestion> EnglishTutFamilytree = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'वह श्रीमती एका हैं। वह है मेरी',
-      imageString: 'assets/beginnerImages/Familytree/t3.png',
+      imageString: 'assets/beginnerImages/family/t3.png',
       optionA: 'Mother',
       optionB: 'Father',
       optionC: 'Grandmother',
       optionD: 'Grandfather',
-      answer: ' Grandmother'),
+      answer: 'Grandmother'),
   McqQuestion(
-      questionType: '4MI',
+      questionType: '4MNI',
       questionText: 'वो, मेरी…., बूढ़ी है',
       imageString: '',
       optionA: 'Grandchildren',
@@ -272,7 +418,7 @@ List<McqQuestion> EnglishTutFamilytree = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'फातूर फिकरी का है …',
-      imageString: 'assets/beginnerImages/Familytree/t5.png',
+      imageString: 'assets/beginnerImages/family/t5.png',
       optionA: 'Son',
       optionB: 'Cousin',
       optionC: 'Niece',
@@ -281,7 +427,7 @@ List<McqQuestion> EnglishTutFamilytree = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'सेली फिकरी कि है …',
-      imageString: 'assets/beginnerImages/Familytree/t6.png',
+      imageString: 'assets/beginnerImages/family/t6.png',
       optionA: 'Brother',
       optionB: 'Father',
       optionC: 'Sister',
@@ -290,7 +436,7 @@ List<McqQuestion> EnglishTutFamilytree = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'मिस्टर फिकरी फतुर की है …',
-      imageString: 'assets/beginnerImages/Familytree/t7.png',
+      imageString: 'assets/beginnerImages/family/t7.png',
       optionA: 'Father',
       optionB: 'Mother',
       optionC: 'Uncle',
@@ -299,7 +445,7 @@ List<McqQuestion> EnglishTutFamilytree = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'श्रीमती जका फतुर की हैं …',
-      imageString: 'assets/beginnerImages/Familytree/t8.png',
+      imageString: 'assets/beginnerImages/family/t8.png',
       optionA: 'Aunt',
       optionB: 'Sister',
       optionC: 'Grandmother',
@@ -308,19 +454,58 @@ List<McqQuestion> EnglishTutFamilytree = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'श्रीमती रोजी फतुर की हैं …',
-      imageString: 'assets/beginnerImages/Familytree/t9.png',
+      imageString: 'assets/beginnerImages/family/t9.png',
       optionA: 'Aunt',
       optionB: 'Mother',
       optionC: 'Sister',
       optionD: 'Grandmother',
       answer: 'Mother'),
 ];
+List<McqQuestion> EnglishQuizFamily = [
+  McqQuestion(
+      questionType: '4MNI',
+      questionText:
+          'सीमा से मेरा क्या संबंध है, यदि सीमा मेरे पिता की बेटी है?',
+      imageString: '',
+      optionA: 'Sister',
+      optionB: 'Wife',
+      optionC: 'Husband',
+      optionD: 'Daughter',
+      answer: 'Sister'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'आपके चाचा की पत्नी से आपका क्या संबंध है?',
+      imageString: '',
+      optionA: 'Aunt',
+      optionB: 'Sister',
+      optionC: 'Mother',
+      optionD: 'Daughter',
+      answer: 'Aunt'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'छवि में छोटे बच्चे के लिए यह आदमी कौन है?',
+      imageString: 'assets/beginnerImages/family/q3.png',
+      optionA: 'Wife',
+      optionB: 'Daughter',
+      optionC: 'Daughter-in-law',
+      optionD: 'Grandson',
+      answer: 'Daughter'),
+  McqQuestion(
+      questionType: '4MNI',
+      questionText: 'मेरी माँ के पति की एक बहन है, उसका मुझसे क्या रिश्ता है?',
+      imageString: '',
+      optionA: 'Nephew',
+      optionB: 'Son',
+      optionC: 'Grandson',
+      optionD: 'Friend',
+      answer: 'Nephew'),
+];
 
-List<McqQuestion> EnglishTutColours = [
+List<McqQuestion> EnglishTutColors = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा रंग है?',
-      imageString: 'assets/beginnerImages/Colours/t1.png',
+      imageString: 'assets/beginnerImages/colors/t1.png',
       optionA: 'Red',
       optionB: 'Green',
       optionC: 'Blue',
@@ -329,7 +514,7 @@ List<McqQuestion> EnglishTutColours = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा रंग है?',
-      imageString: 'assets/beginnerImages/Colours/t2.png',
+      imageString: 'assets/beginnerImages/colors/t2.png',
       optionA: 'Red',
       optionB: 'Green',
       optionC: 'Blue',
@@ -338,16 +523,16 @@ List<McqQuestion> EnglishTutColours = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा रंग है?',
-      imageString: 'assets/beginnerImages/Colours/t3.png',
+      imageString: 'assets/beginnerImages/colors/t3.png',
       optionA: 'Red',
       optionB: 'Green',
       optionC: 'Blue',
       optionD: 'Yellow',
-      answer: ' Green'),
+      answer: 'Green'),
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा रंग है?',
-      imageString: 'assets/beginnerImages/Colours/t4.png',
+      imageString: 'assets/beginnerImages/colors/t4.png',
       optionA: 'Red',
       optionB: 'Green',
       optionC: 'Blue',
@@ -356,7 +541,7 @@ List<McqQuestion> EnglishTutColours = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा रंग है?',
-      imageString: 'assets/beginnerImages/Colours/t5.png',
+      imageString: 'assets/beginnerImages/colors/t5.png',
       optionA: 'Orange',
       optionB: 'Violet',
       optionC: 'Blue',
@@ -365,7 +550,7 @@ List<McqQuestion> EnglishTutColours = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा रंग है?',
-      imageString: 'assets/beginnerImages/Colours/t6.png',
+      imageString: 'assets/beginnerImages/colors/t6.png',
       optionA: 'Violet',
       optionB: 'Green',
       optionC: 'Pink',
@@ -374,10 +559,57 @@ List<McqQuestion> EnglishTutColours = [
   McqQuestion(
       questionType: '4MI',
       questionText: 'यह कौन सा रंग है?',
-      imageString: 'assets/beginnerImages/Colours/t7.png',
+      imageString: 'assets/beginnerImages/colors/t7.png',
       optionA: 'Orange',
       optionB: 'Green',
       optionC: 'Blue',
       optionD: 'Yellow',
       answer: 'Orange'),
+];
+List<McqQuestion> EnglishQuizColors = [
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'लड़की के बालों का रंग क्या है?',
+      imageString: 'assets/beginnerImages/colors/q1.png',
+      optionA: 'Red',
+      optionB: 'Green',
+      optionC: 'Black',
+      optionD: 'Yellow',
+      answer: 'Black'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'गेंद का रंग क्या है?',
+      imageString: 'assets/beginnerImages/colors/q2.png',
+      optionA: 'Red',
+      optionB: 'Orange',
+      optionC: 'Blue',
+      optionD: 'Yellow',
+      answer: 'Orange'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'जूते का रंग क्या है?',
+      imageString: 'assets/beginnerImages/colors/q3.jpg',
+      optionA: 'Red',
+      optionB: 'Green',
+      optionC: 'Blue',
+      optionD: 'Yellow',
+      answer: 'Blue'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'फूल का रंग क्या है?',
+      imageString: 'assets/beginnerImages/colors/q4.png',
+      optionA: 'Red',
+      optionB: 'Green',
+      optionC: 'Blue',
+      optionD: 'Yellow',
+      answer: 'Yellow'),
+  McqQuestion(
+      questionType: '4MI',
+      questionText: 'कार का रंग क्या है?',
+      imageString: 'assets/beginnerImages/colors/q5.png',
+      optionA: 'Red',
+      optionB: 'Violet',
+      optionC: 'Blue',
+      optionD: 'Yellow',
+      answer: 'Red'),
 ];

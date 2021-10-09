@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluento_app/Screens/Question/models/question.dart';
+import 'package:fluento_app/Screens/Question/models/english_que.dart';
+import 'package:fluento_app/Screens/Question/models/hindi_que.dart';
 import 'package:fluento_app/Screens/Question/quiz_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -34,17 +35,6 @@ class _LanguagePageState extends State<LanguagePage> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          actions: [
-            /*Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-            child: Container(
-                clipBehavior: Clip.antiAlias,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: Image.network(' ', fit: BoxFit.cover)),
-          )*/
-          ],
           centerTitle: true,
           elevation: 5,
         ),
@@ -114,6 +104,7 @@ class _LanguagePageState extends State<LanguagePage> {
                         ),
                       ),
                       children: <Widget>[
+                        // Numbers
                         ListTile(
                           onTap: () {
                             var quizl;
@@ -139,12 +130,14 @@ class _LanguagePageState extends State<LanguagePage> {
                             final Map<String, dynamic> quiz = {
                               'quizList': quizl,
                               'quizName': 'Module 1: Numbers',
+                              'quizNo': 'Tutorial1',
                               'score': profile['languages'][langName]
                                   ['beginner']['Tutorial1'],
                               'level': 'beginner',
                               'langName': langName
                             };
-                            Navigator.pushNamed(context, QuizHandler.routeName,
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
                                 arguments: quiz);
                           },
                           title: RichText(
@@ -164,6 +157,40 @@ class _LanguagePageState extends State<LanguagePage> {
                               style: k20TextStyle), // TODO: ADD score
                         ),
                         ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizNumber;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 1: Numbers',
+                              'quizNo': 'Quiz1',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz1'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
                           title: RichText(
                             text: TextSpan(
                               text: 'Quiz 1: ',
@@ -180,16 +207,17 @@ class _LanguagePageState extends State<LanguagePage> {
                                   .toString(),
                               style: k20TextStyle), //TODO: ADD score
                         ),
-                        //Numbers
+
+                        // Animals
                         ListTile(
                           onTap: () {
                             var quizl;
                             switch (langName) {
                               case 'Hindi':
-                                quizl = HindiTutNumber;
+                                quizl = HindiTutAnimals;
                                 break;
                               case 'English':
-                                quizl = EnglishTutNumber;
+                                quizl = EnglishTutAnimals;
                                 break;
                               case 'Spanish':
                                 quizl = HindiTutNumber;
@@ -206,12 +234,14 @@ class _LanguagePageState extends State<LanguagePage> {
                             final Map<String, dynamic> quiz = {
                               'quizList': quizl,
                               'quizName': 'Module 2: Animals',
+                              'quizNo': 'Tutorial2',
                               'score': profile['languages'][langName]
                                   ['beginner']['Tutorial2'],
                               'level': 'beginner',
                               'langName': langName
                             };
-                            Navigator.pushNamed(context, QuizHandler.routeName,
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
                                 arguments: quiz);
                           },
                           title: RichText(
@@ -232,6 +262,40 @@ class _LanguagePageState extends State<LanguagePage> {
                               style: k20TextStyle), //TODO:ADD score
                         ),
                         ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizAnimals;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 2: Animals',
+                              'quizNo': 'Quiz2',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz2'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
                           title: RichText(
                             text: TextSpan(
                               text: 'Quiz 2: ',
@@ -248,25 +312,26 @@ class _LanguagePageState extends State<LanguagePage> {
                                   .toString(),
                               style: k20TextStyle), //TODO:ADD score
                         ),
-                        //Animals
+
+                        // Colors
                         ListTile(
                           onTap: () {
                             var quizl;
                             switch (langName) {
                               case 'Hindi':
-                                quizl = HindiTutNumber;
+                                quizl = HindiTutColour;
                                 break;
                               case 'English':
-                                quizl = EnglishTutNumber;
+                                quizl = EnglishTutColors;
                                 break;
                               case 'Spanish':
-                                quizl = HindiTutNumber;
+                                quizl = HindiTutColour;
                                 break;
                               case 'German':
-                                quizl = HindiTutNumber;
+                                quizl = HindiTutColour;
                                 break;
                               case 'French':
-                                quizl = HindiTutNumber;
+                                quizl = HindiTutColour;
                                 break;
                               default:
                                 break;
@@ -274,12 +339,14 @@ class _LanguagePageState extends State<LanguagePage> {
                             final Map<String, dynamic> quiz = {
                               'quizList': quizl,
                               'quizName': 'Module 3: Colors',
+                              'quizNo': 'Tutorial3',
                               'score': profile['languages'][langName]
                                   ['beginner']['Tutorial3'],
                               'level': 'beginner',
                               'langName': langName
                             };
-                            Navigator.pushNamed(context, QuizHandler.routeName,
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
                                 arguments: quiz);
                           },
                           title: RichText(
@@ -300,6 +367,40 @@ class _LanguagePageState extends State<LanguagePage> {
                               style: k20TextStyle), //TODO:ADD score
                         ),
                         ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizColors;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 3: Colors',
+                              'quizNo': 'Quiz3',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz3'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
                           title: RichText(
                             text: TextSpan(
                               text: 'Quiz 3: ',
@@ -316,16 +417,17 @@ class _LanguagePageState extends State<LanguagePage> {
                                   .toString(),
                               style: k20TextStyle), //TODO:ADD score
                         ),
-                        //Colors
+
+                        // Greetings
                         ListTile(
                           onTap: () {
                             var quizl;
                             switch (langName) {
                               case 'Hindi':
-                                quizl = HindiTutNumber;
+                                quizl = HindiTutGreetings;
                                 break;
                               case 'English':
-                                quizl = EnglishTutNumber;
+                                quizl = EnglishTutGreetings;
                                 break;
                               case 'Spanish':
                                 quizl = HindiTutNumber;
@@ -342,12 +444,14 @@ class _LanguagePageState extends State<LanguagePage> {
                             final Map<String, dynamic> quiz = {
                               'quizList': quizl,
                               'quizName': 'Module 4: Greetings',
+                              'quizNo': 'Tutorial4',
                               'score': profile['languages'][langName]
                                   ['beginner']['Tutorial4'],
                               'level': 'beginner',
                               'langName': langName
                             };
-                            Navigator.pushNamed(context, QuizHandler.routeName,
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
                                 arguments: quiz);
                           },
                           title: RichText(
@@ -369,6 +473,40 @@ class _LanguagePageState extends State<LanguagePage> {
                               style: k20TextStyle), //TODO:ADD score
                         ),
                         ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizGreetings;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizGreetings;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 4: Greetings',
+                              'quizNo': 'Quiz4',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz4'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
                           title: RichText(
                             text: TextSpan(
                               text: 'Quiz 4: ',
@@ -386,7 +524,132 @@ class _LanguagePageState extends State<LanguagePage> {
                                   .toString(),
                               style: k20TextStyle), //TODO:ADD score
                         ),
-                        //Greetings
+
+                        // Family Tree
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutFamily;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutFamily;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 5: Family',
+                              'quizNo': 'Tutorial5',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Tutorial5'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 5: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Family Tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Tutorial5']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizFamily;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizFamily;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 5: Family Tree',
+                              'quizNo': 'Quiz5',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz5'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 5: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Family Tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Quiz5']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    ExpansionTile(
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white,
+                      title: Text(
+                        'Intermediate',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      children: <Widget>[
+                        // Numbers
                         ListTile(
                           onTap: () {
                             var quizl;
@@ -411,18 +674,441 @@ class _LanguagePageState extends State<LanguagePage> {
                             }
                             final Map<String, dynamic> quiz = {
                               'quizList': quizl,
+                              'quizName': 'Module 1: Numbers',
+                              'quizNo': 'Tutorial1',
+                              'score': profile['languages'][langName]
+                                  ['intermediate']['Tutorial1'],
+                              'level': 'Intermediate',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 1: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['intermediate']
+                                      ['Tutorial1']
+                                  .toString(),
+                              style: k20TextStyle), // TODO: ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizNumber;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 1: Numbers',
+                              'quizNo': 'Quiz1',
+                              'score': profile['languages'][langName]
+                                  ['intermediate']['Quiz1'],
+                              'level': 'intermediate',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 1: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['intermediate']
+                                      ['Quiz1']
+                                  .toString(),
+                              style: k20TextStyle), //TODO: ADD score
+                        ),
+
+                        // Animals
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutAnimals;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutAnimals;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 2: Animals',
+                              'quizNo': 'Tutorial2',
+                              'score': profile['languages'][langName]
+                                  ['intermediate']['Tutorial2'],
+                              'level': 'intermediate',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 2: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['intermediate']
+                                      ['Tutorial2']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizAnimals;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 2: Animals',
+                              'quizNo': 'Quiz2',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz2'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 2: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Quiz2']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+
+                        // Colors
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutColors;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'German':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'French':
+                                quizl = HindiTutColour;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 3: Colors',
+                              'quizNo': 'Tutorial3',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Tutorial3'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 3: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Tutorial3']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizColors;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 3: Colors',
+                              'quizNo': 'Quiz3',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz3'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 3: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Quiz1']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+
+                        // Greetings
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutGreetings;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutGreetings;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 4: Greetings',
+                              'quizNo': 'Tutorial4',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Tutorial4'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 4: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Tutorial4']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizGreetings;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizGreetings;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 4: Greetings',
+                              'quizNo': 'Quiz4',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz4'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 4: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Quiz4']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+
+                        // Family Tree
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutFamily;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutFamily;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
                               'quizName': 'Module 5: Family',
+                              'quizNo': 'Tutorial5',
                               'score': profile['languages'][langName]
                                   ['beginner']['Tutorial5'],
                               'level': 'beginner',
                               'langName': langName
                             };
-                            Navigator.pushNamed(context, QuizHandler.routeName,
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
                                 arguments: quiz);
                           },
                           title: RichText(
                             text: TextSpan(
-                              text: 'Module 5: Family',
+                              text: 'Module 5: ',
                               style: k20TextStyle.copyWith(
                                   color: Colors.blueAccent),
                               children: [
@@ -439,6 +1125,40 @@ class _LanguagePageState extends State<LanguagePage> {
                               style: k20TextStyle), //TODO:ADD score
                         ),
                         ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizFamily;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizFamily;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 5: Family Tree',
+                              'quizNo': 'Quiz5',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz5'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
                           title: RichText(
                             text: TextSpan(
                               text: 'Quiz 5: ',
@@ -456,540 +1176,549 @@ class _LanguagePageState extends State<LanguagePage> {
                                   .toString(),
                               style: k20TextStyle), //TODO:ADD score
                         ),
-                        // ListTile(
-                        //   onTap: () {
-                        //     var quizl;
-                        //     switch (profile.keys.elementAt(langIndex)) {
-                        //       case 'Hindi':
-                        //         quizl = HindiTutAnimals;
-                        //         break;
-                        //       case 'English':
-                        //         quizl = EnglishTutAnimals;
-                        //         break;
-                        //       case 'Spanish':
-                        //         quizl = HindiTutNumber;
-                        //         break;
-                        //       case 'German':
-                        //         quizl = HindiTutNumber;
-                        //         break;
-                        //       case 'French':
-                        //         quizl = HindiTutNumber;
-                        //         break;
-                        //       default:
-                        //         break;
-                        //     }
-                        //     final Map<String, dynamic> quiz = {
-                        //       'quizList': quizl,
-                        //       'quizName': 'Tutorial2',
-                        //       //'score': language['beginner']['Tutorial1'],
-                        //       'level': 'beginner',
-                        //       'langName': profile2.keys.elementAt(langIndex),
-                        //       'langIndex': langIndex,
-                        //     };
-                        //     Navigator.pushNamed(context, QuizHandler.routeName,
-                        //         arguments: quiz);
-                        //   },
-                        //   title: RichText(
-                        //     text: TextSpan(
-                        //       text: 'Module 2: ',
-                        //       style: k20TextStyle.copyWith(
-                        //           color: Colors.blueAccent),
-                        //       children: [
-                        //         TextSpan(text: 'Animals', style: k20TextStyle),
-                        //       ],
-                        //     ),
-                        //   ),
-                        //   trailing: Text('0', //TODO:ADD score
-                        //       style: k20TextStyle),
-                        // ),
-                        //     ListTile(
-                        //       title: RichText(
-                        //         text: TextSpan(
-                        //           text: 'Quiz 2: ',
-                        //           style:
-                        //               k20TextStyle.copyWith(color: Colors.yellow),
-                        //           children: [
-                        //             TextSpan(text: 'Animals', style: k20TextStyle),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       trailing: Text('${language['beginner']['Quiz2']}',
-                        //           style: k20TextStyle),
-                        //     ),
-                        //     ListTile(
-                        //       onTap: () {
-                        //         var quizl;
-                        //         switch (language['languageName']) {
-                        //           case 'Hindi':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           case 'English':
-                        //             quizl = EnglishTutNumber;
-                        //             break;
-                        //           case 'Spanish':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           case 'German':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           case 'French':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           default:
-                        //             break;
-                        //         }
-                        //         final Map<String, dynamic> quiz = {
-                        //           'quizList': quizl,
-                        //           'quizName': 'Module 3',
-                        //           'score': language['beginner']['Tutorial1'],
-                        //           'langIndex': langIndex,
-                        //         };
-                        //         Navigator.pushNamed(context, QuizHandler.routeName,
-                        //             arguments: quiz);
-                        //       },
-                        //       title: RichText(
-                        //         text: TextSpan(
-                        //           text: 'Module 3: ',
-                        //           style: k20TextStyle.copyWith(
-                        //               color: Colors.blueAccent),
-                        //           children: [
-                        //             TextSpan(text: 'Colors', style: k20TextStyle),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       trailing: Text('${language['beginner']['Tutorial3']}',
-                        //           style: k20TextStyle),
-                        //     ),
-                        //     ListTile(
-                        //       onTap: () {
-                        //         var quizl;
-                        //         switch (language['languageName']) {
-                        //           case 'Hindi':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           case 'English':
-                        //             quizl = EnglishTutNumber;
-                        //             break;
-                        //           case 'Spanish':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           case 'German':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           case 'French':
-                        //             quizl = HindiTutNumber;
-                        //             break;
-                        //           default:
-                        //             break;
-                        //         }
-                        //         final Map<String, dynamic> quiz = {
-                        //           'quizList': quizl,
-                        //           'quizName': 'Module 3',
-                        //           'score': language['beginner']['Tutorial1'],
-                        //           'langIndex': langIndex,
-                        //         };
-                        //         Navigator.pushNamed(context, QuizHandler.routeName,
-                        //             arguments: quiz);
-                        //       },
-                        //       title: RichText(
-                        //         text: TextSpan(
-                        //           text: 'Quiz 3: ',
-                        //           style:
-                        //               k20TextStyle.copyWith(color: Colors.yellow),
-                        //           children: [
-                        //             TextSpan(text: 'Colors', style: k20TextStyle),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       trailing: Text('${language['beginner']['Quiz3']}',
-                        //           style: k20TextStyle),
-                        //     ),
-                        //     ListTile(
-                        //       title: RichText(
-                        //         text: TextSpan(
-                        //           text: 'Module 4: ',
-                        //           style: k20TextStyle.copyWith(
-                        //               color: Colors.blueAccent),
-                        //           children: [
-                        //             TextSpan(
-                        //                 text: 'Greetings', style: k20TextStyle),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       trailing: Text('${language['beginner']['Tutorial4']}',
-                        //           style: k20TextStyle),
-                        //     ),
-                        //     ListTile(
-                        //       title: RichText(
-                        //         text: TextSpan(
-                        //           text: 'Quiz 4: ',
-                        //           style:
-                        //               k20TextStyle.copyWith(color: Colors.yellow),
-                        //           children: [
-                        //             TextSpan(
-                        //                 text: 'Greetings', style: k20TextStyle),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       trailing: Text('${language['beginner']['Quiz4']}',
-                        //           style: k20TextStyle),
-                        //     ),
-                        //     ListTile(
-                        //       title: RichText(
-                        //         text: TextSpan(
-                        //           text: 'Module 5: ',
-                        //           style: k20TextStyle.copyWith(
-                        //               color: Colors.blueAccent),
-                        //           children: [
-                        //             TextSpan(
-                        //                 text: 'Family tree', style: k20TextStyle),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       trailing: Text('${language['beginner']['Tutorial5']}',
-                        //           style: k20TextStyle),
-                        //     ),
-                        //     ListTile(
-                        //       title: RichText(
-                        //         text: TextSpan(
-                        //           text: 'Quiz 5: ',
-                        //           style:
-                        //               k20TextStyle.copyWith(color: Colors.yellow),
-                        //           children: [
-                        //             TextSpan(
-                        //                 text: 'Family tree', style: k20TextStyle),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       trailing: Text('${language['beginner']['Quiz5']}',
-                        //           style: k20TextStyle),
-                        //     ),
                       ],
                     ),
-                    // SizedBox(
-                    //   height: 2.h,
-                    // ),
-                    // ExpansionTile(
-                    //   iconColor: Colors.white,
-                    //   collapsedIconColor: Colors.white,
-                    //   title: Text(
-                    //     'Intermediate',
-                    //     style: TextStyle(
-                    //       fontFamily: 'Poppins',
-                    //       color: Colors.white,
-                    //       fontSize: 22,
-                    //       fontWeight: FontWeight.w500,
-                    //     ),
-                    //   ),
-                    //   children: <Widget>[
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 1: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(text: 'Numbers', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial1']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 1: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(text: 'Numbers', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz1']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 2: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(text: 'Animals', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial2']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 2: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(text: 'Animals', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz2']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 3: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(text: 'Colors', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial3']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 3: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(text: 'Colors', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz3']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 4: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Greetings', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial4']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 4: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Greetings', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz4']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 5: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Family tree', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial5']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 5: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Family tree', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz5']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //   ],
-                    // ),
-                    // SizedBox(
-                    //   height: 2.h,
-                    // ),
-                    // ExpansionTile(
-                    //   iconColor: Colors.white,
-                    //   collapsedIconColor: Colors.white,
-                    //   title: Text(
-                    //     'Advance',
-                    //     style: TextStyle(
-                    //       fontFamily: 'Poppins',
-                    //       color: Colors.white,
-                    //       fontSize: 22,
-                    //       fontWeight: FontWeight.w500,
-                    //     ),
-                    //   ),
-                    //   children: <Widget>[
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 1: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(text: 'Numbers', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial1']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 1: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(text: 'Numbers', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz1']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 2: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(text: 'Animals', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial2']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 2: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(text: 'Animals', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz2']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 3: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(text: 'Colors', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial3']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 3: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(text: 'Colors', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz3']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 4: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Greetings', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial4']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 4: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Greetings', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz4']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Module 5: ',
-                    //           style: k20TextStyle.copyWith(
-                    //               color: Colors.blueAccent),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Family tree', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Tutorial5']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //     ListTile(
-                    //       title: RichText(
-                    //         text: TextSpan(
-                    //           text: 'Quiz 5: ',
-                    //           style:
-                    //               k20TextStyle.copyWith(color: Colors.yellow),
-                    //           children: [
-                    //             TextSpan(
-                    //                 text: 'Family tree', style: k20TextStyle),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //       trailing: Text('${language['beginner']['Quiz5']}',
-                    //           style: k20TextStyle),
-                    //     ),
-                    //   ],
-                    // )
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    ExpansionTile(
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white,
+                      title: Text(
+                        'Advance',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      children: <Widget>[
+                        // Numbers
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutNumber;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 1: Numbers',
+                              'quizNo': 'Tutorial1',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Tutorial1'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 1: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']
+                                      ['Tutorial1']
+                                  .toString(),
+                              style: k20TextStyle), // TODO: ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizNumber;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 1: Numbers',
+                              'quizNo': 'Quiz1',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Quiz1'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 1: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']['Quiz1']
+                                  .toString(),
+                              style: k20TextStyle), //TODO: ADD score
+                        ),
+
+                        // Animals
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutAnimals;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutAnimals;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 2: Animals',
+                              'quizNo': 'Tutorial2',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Tutorial2'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 2: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']
+                                      ['Tutorial2']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizAnimals;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 2: Animals',
+                              'quizNo': 'Quiz2',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Quiz2'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 2: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']['Quiz2']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+
+                        // Colors
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutColors;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'German':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'French':
+                                quizl = HindiTutColour;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 3: Colors',
+                              'quizNo': 'Tutorial3',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Tutorial3'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 3: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']
+                                      ['Tutorial3']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutColour;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizColors;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 3: Colors',
+                              'quizNo': 'Quiz3',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Quiz3'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 3: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']['Quiz1']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+
+                        // Greetings
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutGreetings;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutGreetings;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 4: Greetings',
+                              'quizNo': 'Tutorial4',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Tutorial4'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 4: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']
+                                      ['Tutorial4']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizGreetings;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizGreetings;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 4: Greetings',
+                              'quizNo': 'Quiz4',
+                              'score': profile['languages'][langName]['advance']
+                                  ['Quiz4'],
+                              'level': 'advance',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 4: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['advance']['Quiz4']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+
+                        // Family Tree
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiTutFamily;
+                                break;
+                              case 'English':
+                                quizl = EnglishTutFamily;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'German':
+                                quizl = HindiTutNumber;
+                                break;
+                              case 'French':
+                                quizl = HindiTutNumber;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Module 5: Family',
+                              'quizNo': 'Tutorial5',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Tutorial5'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 5: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Family Tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Tutorial5']
+                                  .toString()
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                        ListTile(
+                          onTap: () {
+                            var quizl;
+                            switch (langName) {
+                              case 'Hindi':
+                                quizl = HindiQuizFamily;
+                                break;
+                              case 'English':
+                                quizl = EnglishQuizFamily;
+                                break;
+                              case 'Spanish':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'German':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              case 'French':
+                                quizl = HindiQuizAnimals;
+                                break;
+                              default:
+                                break;
+                            }
+                            final Map<String, dynamic> quiz = {
+                              'quizList': quizl,
+                              'quizName': 'Quiz 5: Family Tree',
+                              'quizNo': 'Quiz5',
+                              'score': profile['languages'][langName]
+                                  ['beginner']['Quiz5'],
+                              'level': 'beginner',
+                              'langName': langName
+                            };
+                            Navigator.pushReplacementNamed(
+                                context, QuizHandler.routeName,
+                                arguments: quiz);
+                          },
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 5: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Family Tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
+                          trailing: Text(
+                              profile['languages'][langName]['beginner']
+                                      ['Quiz5']
+                                  .toString(),
+                              style: k20TextStyle), //TODO:ADD score
+                        ),
+                      ],
+                    ),
                   ],
                 );
               }
