@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluento_app/Screens/Language-Page/language_page.dart';
+import 'package:fluento_app/Screens/Question/quiz_handler.dart';
 import 'package:fluento_app/Screens/SignUp/signup_page2.dart';
 import 'package:fluento_app/Screens/SignUp/signup_page3.dart';
 import 'package:fluento_app/Screens/friends/add_friends_card.dart';
@@ -41,19 +42,28 @@ class MyApp extends StatelessWidget {
             SignUpPage1.routeName: (context) => const SignUpPage1(),
             SignUpPage2.routeName: (context) => const SignUpPage2(),
             SignUpPage3.routeName: (context) => const SignUpPage3(),
-            SelectLanguageCard.routeName: (context) =>
-                const SelectLanguageCard(),
+            SelectLanguageCard.routeName: (context) => const SelectLanguageCard(),
             HomePage.routeName: (context) => HomePage(),
             ProfilePage.routeName: (context) => ProfilePage(),
             FriendsPage.routeName: (context) => FriendsPage(),
             addFriendsCard.routeName: (context) => addFriendsCard(),
             requestPage.routeName: (context) => requestPage(),
             LanguagePage.routeName: (context) => const LanguagePage(),
-            fopsImage.routeName: (context) => fopsImage(),
+            FOpsImage.routeName: (context) => FOpsImage(
+                  title: '',
+                  imageString: '',
+                  optionC: '',
+                  optionD: '',
+                  optionB: '',
+                  questionText: '',
+                  answer: '',
+                  optionA: '',
+                ),
             fopsNoImage.routeName: (context) => fopsNoImage(),
             topsnoimage.routeName: (context) => topsnoimage(),
+            QuizHandler.routeName: (context) => QuizHandler(),
           },
-          initialRoute: fopsNoImage.routeName,
+          initialRoute: WelcomePage.routeName,
         );
       },
     );

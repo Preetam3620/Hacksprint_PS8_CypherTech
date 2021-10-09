@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class fopsImage extends StatefulWidget {
+class FOpsImage extends StatefulWidget {
+  final String title;
+  final String questionText;
+  final String imageString;
+  final String optionA;
+  final String optionB;
+  final String optionC;
+  final String optionD;
+  final String answer;
+
+  FOpsImage(
+      {required this.title,
+      required this.questionText,
+      required this.imageString,
+      required this.optionA,
+      required this.optionB,
+      required this.optionC,
+      required this.optionD,
+      required this.answer});
   @override
-  _fopsImageState createState() => _fopsImageState();
+  _FOpsImageState createState() => _FOpsImageState();
   static const routeName = '/fopsImage';
 }
 
-class _fopsImageState extends State<fopsImage> {
+class _FOpsImageState extends State<FOpsImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +33,7 @@ class _fopsImageState extends State<fopsImage> {
         backgroundColor: Color(0xFF2A2A44),
         automaticallyImplyLeading: true,
         title: Text(
-          'Module 1',
+          widget.title,
           style: TextStyle(
             fontFamily: 'Poppins',
             color: Colors.white,
@@ -35,6 +53,7 @@ class _fopsImageState extends State<fopsImage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Question
               Expanded(
                 flex: 3,
                 child: Padding(
@@ -49,7 +68,7 @@ class _fopsImageState extends State<fopsImage> {
                       ),
                     ),
                     child: Text(
-                      'Question 1: \nIdentify the image ',
+                      'Question 1: \n${widget.questionText} ',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontFamily: 'Poppins',
@@ -61,6 +80,8 @@ class _fopsImageState extends State<fopsImage> {
                   ),
                 ),
               ),
+
+              // image
               Expanded(
                 flex: 5,
                 child: Container(
@@ -72,15 +93,16 @@ class _fopsImageState extends State<fopsImage> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      'https://picsum.photos/seed/676/600',
+                    child: Image.asset(
+                      widget.imageString,
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.25,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
               ),
+
               Expanded(
                 child: Container(
                   width: 100,
@@ -90,6 +112,8 @@ class _fopsImageState extends State<fopsImage> {
                   ),
                 ),
               ),
+
+              // Option A
               Expanded(
                 flex: 2,
                 child: Padding(
@@ -121,6 +145,8 @@ class _fopsImageState extends State<fopsImage> {
                   ),
                 ),
               ),
+
+              // Option B
               Expanded(
                 flex: 2,
                 child: Padding(
@@ -152,6 +178,8 @@ class _fopsImageState extends State<fopsImage> {
                   ),
                 ),
               ),
+
+              // Option C
               Expanded(
                 flex: 2,
                 child: Padding(
@@ -183,6 +211,8 @@ class _fopsImageState extends State<fopsImage> {
                   ),
                 ),
               ),
+
+              // Option D
               Expanded(
                 flex: 2,
                 child: Padding(
@@ -223,6 +253,8 @@ class _fopsImageState extends State<fopsImage> {
                   ),
                 ),
               ),
+
+              // Next button
               Expanded(
                 flex: 2,
                 child: Hero(
