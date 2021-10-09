@@ -1,7 +1,7 @@
-import 'package:fluento_app/Screens/friends/addfriendscard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'add_friends_card.dart';
 
 class FriendsPage extends StatefulWidget {
   static const routeName = '/FriendsPage';

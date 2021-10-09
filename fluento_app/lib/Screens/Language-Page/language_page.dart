@@ -57,10 +57,7 @@ class _LanguagePageState extends State<LanguagePage> {
                 Map<String, dynamic> profile =
                     snapshot.data!.data() as Map<String, dynamic>;
                 final language = profile['languages'][langIndex];
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                return ListView(
                   children: [
                     SizedBox(
                       height: 2.h,
@@ -113,52 +110,146 @@ class _LanguagePageState extends State<LanguagePage> {
                       ),
                       children: <Widget>[
                         ListTile(
-                          title: Text('Module 1: Animals', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 1: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial1']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 1', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 1: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz1']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 2', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 2: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial2']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 2', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 2: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz2']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 3', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 3: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial3']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 3', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 3: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz3']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 4', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 4: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial4']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 4', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 4: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz4']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 5', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 5: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Family tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial5']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 5', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 5: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Family tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz5']}',
                               style: k20TextStyle),
                         ),
@@ -181,52 +272,146 @@ class _LanguagePageState extends State<LanguagePage> {
                       ),
                       children: <Widget>[
                         ListTile(
-                          title: Text('Module 1', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 1: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial1']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 1', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 1: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz1']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 2', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 2: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial2']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 2', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 2: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz2']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 3', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 3: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial3']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 3', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 3: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz3']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 4', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 4: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial4']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 4', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 4: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz4']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 5', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 5: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Family tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial5']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 5', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 5: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Family tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz5']}',
                               style: k20TextStyle),
                         ),
@@ -249,52 +434,146 @@ class _LanguagePageState extends State<LanguagePage> {
                       ),
                       children: <Widget>[
                         ListTile(
-                          title: Text('Module 1', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 1: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial1']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 1', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 1: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Numbers', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz1']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 2', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 2: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial2']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 2', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 2: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Animals', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz2']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 3', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 3: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial3']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 3', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 3: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(text: 'Colors', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz3']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 4', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 4: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial4']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 4', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 4: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Greetings', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz4']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Module 5', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Module 5: ',
+                              style: k20TextStyle.copyWith(
+                                  color: Colors.blueAccent),
+                              children: [
+                                TextSpan(
+                                    text: 'Family tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Tutorial5']}',
                               style: k20TextStyle),
                         ),
                         ListTile(
-                          title: Text('Quiz 5', style: k20TextStyle),
+                          title: RichText(
+                            text: TextSpan(
+                              text: 'Quiz 5: ',
+                              style:
+                                  k20TextStyle.copyWith(color: Colors.yellow),
+                              children: [
+                                TextSpan(
+                                    text: 'Family tree', style: k20TextStyle),
+                              ],
+                            ),
+                          ),
                           trailing: Text('${language['beginner']['Quiz5']}',
                               style: k20TextStyle),
                         ),
