@@ -13,7 +13,8 @@ class QuizHandler extends StatefulWidget {
 class _QuizHandlerState extends State<QuizHandler> {
   @override
   Widget build(BuildContext context) {
-    final quiz = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final quiz =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
 
     return PageView.builder(
       itemCount: quiz['quizList'].length,
@@ -23,16 +24,12 @@ class _QuizHandlerState extends State<QuizHandler> {
           title: quiz['quizName'],
           imageString: quiz['quizList'][index].imageString,
           answer: quiz['quizList'][index].answer,
-          optionC: '',
-          optionD: '',
-          optionB: '',
           questionText: quiz['quizList'][index].questionText,
-          optionA: '',
-          /*questionText: quiz['quizList'][index]['questionText'],
-          optionA: quiz['quizList'][index]['optionA'],
-          optionB: quiz['quizList'][index]['optionB'],
-          optionC: quiz['quizList'][index]['optionC'],
-          optionD: quiz['quizList'][index]['optionD'],*/
+          optionA: quiz['quizList'][index].optionA,
+          optionB: quiz['quizList'][index].optionB,
+          optionC: quiz['quizList'][index].optionC,
+          optionD: quiz['quizList'][index].optionD,
+          quesNo: index + 1,
         );
       },
     );

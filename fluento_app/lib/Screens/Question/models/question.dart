@@ -253,7 +253,6 @@ List<McqQuestion> hindiTutAnimals = [
       optionD: 'कुत्ता',
       answer: 'पेंगुइन'),
 ];
-
 List<McqQuestion> englishTutAnimals = [
   McqQuestion(
       questionType: '4MI',

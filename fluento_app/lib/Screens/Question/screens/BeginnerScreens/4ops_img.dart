@@ -10,6 +10,7 @@ class FOpsImage extends StatefulWidget {
   final String optionC;
   final String optionD;
   final String answer;
+  final int quesNo;
 
   FOpsImage(
       {required this.title,
@@ -19,13 +20,18 @@ class FOpsImage extends StatefulWidget {
       required this.optionB,
       required this.optionC,
       required this.optionD,
-      required this.answer});
+      required this.answer,
+      required this.quesNo});
   @override
   _FOpsImageState createState() => _FOpsImageState();
   static const routeName = '/fopsImage';
 }
 
 class _FOpsImageState extends State<FOpsImage> {
+  bool isA = false;
+  bool isB = false;
+  bool isC = false;
+  bool isD = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,23 +64,25 @@ class _FOpsImageState extends State<FOpsImage> {
                 flex: 3,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1A1A2F),
-                      border: Border.all(
+                  child: Flexible(
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
                         color: Color(0xFF1A1A2F),
+                        border: Border.all(
+                          color: Color(0xFF1A1A2F),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      'Question 1: \n${widget.questionText} ',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal,
+                      child: Text(
+                        'Question ${widget.quesNo}: \n${widget.questionText} ',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
                     ),
                   ),
@@ -118,27 +126,34 @@ class _FOpsImageState extends State<FOpsImage> {
                 flex: 2,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1A1A2F),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Color(0xFF2A2A44),
-                        width: 5,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (widget.optionA == widget.answer) isA = true;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: isA ? Colors.green : Color(0xFF1A1A2F),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Color(0xFF2A2A44),
+                          width: 5,
+                        ),
                       ),
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0.1),
-                      child: Text(
-                        'Option A',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0.1),
+                        child: Text(
+                          widget.optionA,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: isA ? Colors.black : Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
                     ),
@@ -151,27 +166,34 @@ class _FOpsImageState extends State<FOpsImage> {
                 flex: 2,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1A1A2F),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Color(0xFF2A2A44),
-                        width: 5,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (widget.optionB == widget.answer) isB = true;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: isB ? Colors.green : Color(0xFF1A1A2F),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Color(0xFF2A2A44),
+                          width: 5,
+                        ),
                       ),
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0.1),
-                      child: Text(
-                        'Option B',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0.1),
+                        child: Text(
+                          widget.optionB,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: isB ? Colors.black : Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
                     ),
@@ -198,7 +220,7 @@ class _FOpsImageState extends State<FOpsImage> {
                     child: Align(
                       alignment: AlignmentDirectional(0, 0.1),
                       child: Text(
-                        'Option C',
+                        widget.optionC,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'Poppins',
@@ -231,7 +253,7 @@ class _FOpsImageState extends State<FOpsImage> {
                     child: Align(
                       alignment: AlignmentDirectional(0, 0.1),
                       child: Text(
-                        'Option D',
+                        widget.optionD,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'Poppins',
