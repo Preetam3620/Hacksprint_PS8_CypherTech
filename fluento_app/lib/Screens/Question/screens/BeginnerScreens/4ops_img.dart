@@ -47,7 +47,6 @@ class _FOpsImageState extends State<FOpsImage> {
   bool isB = false;
   bool isC = false;
   bool isD = false;
-  // this will create a instance object of a class
 
   @override
   Widget build(BuildContext context) {
@@ -145,13 +144,10 @@ class _FOpsImageState extends State<FOpsImage> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
                   child: GestureDetector(
                     onTap: () {
-                      print('yo');
-
                       setState(() {
                         if (widget.optionA == widget.answer) {
                           isA = true;
                         }
-                        ;
                       });
                     },
                     child: Container(
@@ -320,28 +316,16 @@ class _FOpsImageState extends State<FOpsImage> {
                   child: GestureDetector(
                     onTap: () async {
                       if (widget.quesNo == widget.length) {
-                        if (isA == true ||
-                            isB == true ||
-                            isC == true ||
-                            isD == true) {
+                        if (isA == true || isB == true || isC == true || isD == true) {
                           score += 1;
                           print(score);
                         }
-                        await updateScrore(
-                            score: score,
-                            langName: widget.langName,
-                            title: widget.quizNo,
-                            level: widget.level);
-                        Navigator.pushReplacementNamed(
-                            context, LanguagePage.routeName,
-                            arguments: widget.langName);
+                        await updateScrore(score: score, langName: widget.langName, title: widget.quizNo, level: widget.level);
+                        Navigator.pushReplacementNamed(context, LanguagePage.routeName, arguments: widget.langName);
                         score = 0;
                         currentPage = 0;
                       } else {
-                        if (isA == true ||
-                            isB == true ||
-                            isC == true ||
-                            isD == true) {
+                        if (isA == true || isB == true || isC == true || isD == true) {
                           score += 1;
                           print(score);
                         }
@@ -383,11 +367,9 @@ class _FOpsImageState extends State<FOpsImage> {
   }
 }
 
-Future<void> updateScrore(
-    {required score, required langName, required title, required level}) async {
+Future<void> updateScrore({required score, required langName, required title, required level}) async {
   final uid = FirebaseAuth.instance.currentUser!.uid;
-  DocumentReference userDocRef =
-      FirebaseFirestore.instance.collection('profiles').doc(uid);
+  DocumentReference userDocRef = FirebaseFirestore.instance.collection('profiles').doc(uid);
   await userDocRef
       .update({'languages.$langName.$level.$title': score})
       .then((value) => print("Query Done"))
